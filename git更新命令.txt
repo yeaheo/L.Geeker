@@ -1,0 +1,7 @@
+将数据库的文件同步到本地
+git pull git@github.com:yoo2767/Hello-World.git
+
+将本地文件上传到github上去
+git add Mysql配置文件.txt
+git commit -m "上传mysql的配置文件"
+git push git@github.com:yoo2767/Hello-World.git
