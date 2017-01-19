@@ -1,0 +1,62 @@
+Centos7下安装Mysql5.7的数据库
+1、添加相应的用户
+[root@bogon ~]#  useradd -M -s /sbin/nologin mysql
+2、解压二进制文件
+[root@bogon opt]# tar xf mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz
+3、准备Mysql数据库的安装目录
+[root@bogon opt]# mv mysql-5.7.17-linux-glibc2.5-x86_64 /usr/local/mysql/
+[root@bogon opt]# mkdir -pv /usr/local/mysql/data
+[root@bogon opt]# chown -R mysql.mysql /usr/local/mysql/
+4、初始化数据库
+[root@bogon opt]# /usr/local/mysql/bin/mysqld --initialize --user=mysql --datadir=/usr/local/mysql/ --basedir=/usr/local/mysql/
+注：初始化数据库的时候会提供一个初始密码，初次登陆数据库的时候会使用到这个密码
+[root@bogon opt]# /usr/local/bin/mysql_ssl_rsa_setup  --datadir=/usr/local/mysql/data/
+5、准备系统配置文件
+[root@bogon ~]# cd /usr/local/mysql/support-files/
+[root@bogon support-files]# cp my-default.cnf /etc/my.cnf
+修改配置文件关键位置如下：
+basedir = /usr/local/mysql
+datadir = /usr/local/mysql/data
+port = 3306
+server_id = 123
+socket = /tmp/mysql.sock
+6、准备系统服务
+[root@bogon support-files]# pwd
+/usr/local/mysql/support-files
+[root@bogon support-files]# cp mysql.server /etc/init.d/mysqld 
+[root@bogon support-files]# vim /etc/init.d/mysqld
+[root@bogon support-files]# chmod +x /etc/init.d/mysqld、
+[root@bogon support-files]# chkconfig --add mysqld
+[root@bogon support-files]# chkconfig --list mysqld
+
+注意：该输出结果只显示 SysV 服务，并不包含原生 systemd 服务。SysV 配置数据可能被原生 systemd 配置覆盖。
+      如果您想列出 systemd 服务,请执行 'systemctl list-unit-files'。
+      欲查看对特定 target 启用的服务请执行
+      'systemctl list-dependencies [target]'。
+
+mysqld             0:关    1:关    2:开    3:开    4:开    5:开    6:关
+7、启动服务修改密码
+[root@bogon mysql]# bin/mysqld_safe --user=mysql &
+[root@bogon mysql]# mysql -uroot -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.7.17 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+mysql> set password=password('admin123');
+mysql> grant all on *.* to 'root'@'localhost' identified by 'admin123';
+mysql> flush privileges;
+Query OK, 0 rows affected (0.07 sec)
+mysql> quit
+Bye
+8、设置Mysql数据库开机自启
+[root@bogon ~]# chkconfig mysqld on
