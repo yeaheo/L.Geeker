@@ -1,0 +1,20 @@
+./config shared zlib-dynamic
+config完成后执行 make 命令
+make
+make 命令执行完后再执行 make install 命令，安装openssl
+make install
+重命名原来的openssl命令
+mv /usr/bin/openssl  /usr/bin/openssl.old
+重命名原来的openssl目录
+mv /usr/include/openssl  /usr/include/openssl.old
+将安装好的openssl 的openssl命令软连到/usr/bin/openssl
+ln -s /usr/local/ssl/bin/openssl  /usr/bin/openssl
+将安装好的openssl 的openssl目录软连到/usr/include/openssl
+ln -s /usr/local/ssl/include/openssl  /usr/include/openssl
+修改系统自带的openssl库文件，如/usr/local/lib64/libssl.so(根据机器环境而定) 软链到升级后的libssl.so
+ln -s /usr/local/ssl/lib/libssl.so /usr/local/lib64/libssl.so
+执行命令查看openssl依赖库版本是否为1.0.1g：
+strings /usr/local/lib64/libssl.so |grep OpenSSL
+在/etc/ld.so.conf文件中写入openssl库文件的搜索路径
+echo "/usr/local/ssl/lib" >> /etc/ld.so.conf
+使修改后的/etc/ld.so.conf生效
