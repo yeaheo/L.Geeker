@@ -1,3 +1,5 @@
+## Linux内核参数优化说明
+``` xml
 net.ipv4.ip_forward = 0   #路由转发功能需要的时候可以设置为1
 net.ipv4.conf.default.rp_filter = 1
 net.ipv4.conf.default.accept_source_route = 0
@@ -30,3 +32,4 @@ net.ipv4.tcp_mem = 94500000 915000000 927000000
 net.ipv4.tcp_fin_timeout = 1
 net.ipv4.tcp_keepalive_time = 30
 net.ipv4.ip_local_port_range = 1024   65000
+```
