@@ -1,4 +1,4 @@
-# 利用rpm方式安装MySQL数据库
+## 利用rpm方式安装MySQL数据库
 - 本总结适合于利用rpm的方式安装MySQL数据库
 
 ### 下载MySQL官方安装源
