@@ -24,4 +24,6 @@
 - 执行`./certbot-auto certonly`后进入了证书申请步骤，我们按要求输入相关参数即可，有可能要求输入邮箱。如果申请失败，可以重复执行`./certbot-auto certonly`申请，一般会申请成功。
 - 申请成功会提示你申请证书及Key的具体路径，一般都会放在`/etc/letsencrypt/live`下以所申请域名命名的文件夹下。
 - 另外需要注意的是Let’s Encrypt 免费SSL证书只有90的有效期，需要自己更新，如果以后执行自动更新也是在这里。
+- 剩下的就是配置WEB服务器Nginx支持ssl，具体配置方法参见[Nginx配置HTTPS](Nginx-配置SSL模块支持https.md)
+
 
