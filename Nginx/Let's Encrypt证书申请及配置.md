@@ -12,5 +12,5 @@
 - certbot英文教程网站：<https://certbot.eff.org>
 - 首先将你要申请Let’s Encrypt SSL的域名解析到VPS上。然后再到此页面 https://certbot.eff.org/ 根据自己系统生成安装代码。如下图，首先根据自己的建站环境，选择“Nginx或Apache”蜗牛的VPS是CentOS 7系统，和Nginx处理环境，所以选择了“Nginx”和“CentOS/RHEL 7”。
 - 如下图所示：
-- ![certbot界面](https://github.com/yoo2767/youger/blob/master/images/certbot.png)
+- ![certbot界面](../images/certbot.png "certbot界面")
 
