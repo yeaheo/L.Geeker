@@ -1,6 +1,7 @@
 ### Ceph安装前的准备工作——预检
 - 建议安装一个 ceph-deploy 管理节点和一个三节点的Ceph存储集群来研究Ceph的基本特性。这篇预检会帮你准备一个ceph-deploy管理节点、以及三个Ceph 节点（或虚拟机），以此构成 Ceph 存储集群。在进行下一步之前，请参见操作系统推荐以确认你安装了合适的 Linux 发行版。如果你在整个生产集群中只部署了单一 Linux 发行版的同一版本，那么在排查生产环境中遇到的问题时就会容易一点。
-- 基本架构图参见:<http://docs.ceph.org.cn/_images/ditaa-cffd08dd3e192a5f1d724ad7930cb04200b9b425.png>
+- 基本架构图参见下图:
+  - ![ceph基本架构图](../images/ceph1.png)
 
 #### 安装Ceph部署工具
 - 把 Ceph 仓库添加到 ceph-deploy 管理节点，然后安装 ceph-deploy 。
