@@ -62,8 +62,8 @@
   - 注意：192.168.8.129为tracker服务器IP地址
 - 修改完成保存并退出 vim ，这时候我们依然想优雅地启动 Storage服务，带目录的命令不够优雅，这里还是使用ln -s 建立软链接：
   - `ln -s /usr/bin/fdfs_storaged /usr/local/bin`
-  - 启动服务
+  - 启动服务
   - `service fdfs_storaged start`
-  - 查看监听端口
+  - 查看监听端口
   - `netstat -unltp|grep fdfs`
   
