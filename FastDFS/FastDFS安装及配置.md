@@ -66,4 +66,6 @@
   - `service fdfs_storaged start`
   - 查看监听端口
   - `netstat -unltp|grep fdfs`
+- 我们安装配置并启动了 Tracker 和 Storage 服务，也没有报错了。那他俩是不是在通信呢？我们可以监视一下：
+  - `/usr/bin/fdfs_monitor /etc/fdfs/storage.conf`
   
