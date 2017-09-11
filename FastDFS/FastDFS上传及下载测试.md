@@ -10,7 +10,7 @@
 - `cp client.conf.sample client.conf`
 - `vim client.conf`
 - 修改如下参数：
-- ![Client配置文件](https://github.com/yoo2767/youger/blob/master/images/FastDFS_test.png)
+- ![Client修改配置文件](../images/Client.png)
 
 #### 上传命令
 - `/usr/bin/fdfs_test /etc/fdfs/client.conf upload /usr/bin/test.txt`
