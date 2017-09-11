@@ -13,4 +13,15 @@
 - 首先将你要申请Let’s Encrypt SSL的域名解析到VPS上。然后再到此页面 https://certbot.eff.org/ 根据自己系统生成安装代码。如下图，首先根据自己的建站环境，选择“Nginx或Apache”蜗牛的VPS是CentOS 7系统，和Nginx处理环境，所以选择了“Nginx”和“CentOS/RHEL 7”。
 - 如下图所示：
 - ![certbot界面](../images/certbot.png "certbot界面")
+- 具体操作可以参考[官网教程](https://certbot.eff.org/#centosrhel7-nginx)
+
+- 然后执行以下命令:
+  - `yum -y install certbot`
+- 安装完成后，需要进一步执行以下操作:
+  - `wget https://dl.eff.org/certbot-auto`
+  - `chmod +x certbot-auto`
+  - `./certbot-auto certonly`
+- 执行`./certbot-auto certonly`后进入了证书申请步骤，我们按要求输入相关参数即可，有可能要求输入邮箱。如果申请失败，可以重复执行`./certbot-auto certonly`申请，一般会申请成功。
+- 申请成功会提示你申请证书及Key的具体路径，一般都会放在`/etc/letsencrypt/live`下以所申请域名命名的文件夹下。
+- 另外需要注意的是Let’s Encrypt 免费SSL证书只有90的有效期，需要自己更新，如果以后执行自动更新也是在这里。
 
