@@ -56,11 +56,11 @@ enabled=1
 autorefresh=1
 type=rpm-md
 ```
-- 安装
+#### Install
   - `yum -y install elasticsearch`
-- 启/停elasticsearch
+#### start/stop elasticsearch service
   - `systemctl start/stop elasticsearch`
-- 查看elasticsearch版本
+#### 查看elasticsearch版本
   - `/usr/share/elasticsearch/bin/elasticsearch -V`
 - You can test that your Elasticsearch node is running by sending an HTTP request to port 9200 on localhost:
 - 访问输出内容如下：
