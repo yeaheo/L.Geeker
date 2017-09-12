@@ -1,5 +1,4 @@
 ## ELK安装及配置
-## ELK安装及配置
 - ELK官方教程: <https://www.elastic.co/guide/index.html>
 
 ### 安装顺序
@@ -57,3 +56,27 @@ enabled=1
 autorefresh=1
 type=rpm-md
 ```
+- 安装
+  - `yum -y install elasticsearch`
+- 启/停elasticsearch
+  - `systemctl start/stop elasticsearch`
+- 查看elasticsearch版本
+  - `/usr/share/elasticsearch/bin/elasticsearch -V`
+- You can test that your Elasticsearch node is running by sending an HTTP request to port 9200 on localhost:
+- 访问输出内容如下：
+``` xml
+{
+  "name" : "Cp8oag6",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "AT69_T_DTp-1qgIJlatQqA",
+  "version" : {
+    "number" : "5.6.0",
+    "build_hash" : "f27399d",
+    "build_date" : "2016-03-30T09:51:41.449Z",
+    "build_snapshot" : false,
+    "lucene_version" : "6.6.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
+- elasticsearch默认配置文件为`/etc/elasticsearch/elasticsearch.yml`，需要修改配置文件可以修改此参数。
