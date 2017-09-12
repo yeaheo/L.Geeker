@@ -80,3 +80,31 @@ type=rpm-md
 }
 ```
 - elasticsearch默认配置文件为`/etc/elasticsearch/elasticsearch.yml`，需要修改配置文件可以修改此参数。
+
+### 安装Kibana
+- 为了方便，我们采用rpm的方式安装Kibana
+#### Import the Elastic PGP Key
+- `rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch`
+#### Create the repo file
+- Create a file called kibana.repo in the `/etc/yum.repos.d/` directory for RedHat based distributions
+- `vim /etc/yum.repos.d/kibana.repo`
+- 将以下内容写到此文件中
+``` repo
+[kibana-5.x]
+name=Kibana repository for 5.x packages
+baseurl=https://artifacts.elastic.co/packages/5.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+```
+- 其实，上述步骤和安装elasticsearch步骤一致，可以忽略！
+#### Install
+  - `yum -y install kibana`
+#### start/stop kibana service
+  - `systemctl start/stop kibana`
+#### 查看kibana版本
+  - `/usr/share/kibana/bin/kibana -V`
+- Kibana loads its configuration from the /etc/kibana/kibana.yml file by default，需要修改配置文件可以修改此参数。
+
