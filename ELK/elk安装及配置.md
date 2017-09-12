@@ -107,4 +107,33 @@ type=rpm-md
 #### 查看kibana版本
   - `/usr/share/kibana/bin/kibana -V`
 - Kibana loads its configuration from the /etc/kibana/kibana.yml file by default，需要修改配置文件可以修改此参数。
+- The Kibana server reads properties from the kibana.yml file on startup. The default settings configure Kibana to run on localhost:5601. To change the host or port number, or connect to Elasticsearch running on a different machine, you’ll need to update your kibana.yml file. 
 
+### 安装Logstash
+- 为了方便，我们采用rpm的方式安装Kibana
+#### Import the Elastic PGP Key
+- `rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch`
+#### Create the repo file
+- Create a file called logstash.repo in the `/etc/yum.repos.d/` directory for RedHat based distributions
+- `vim /etc/yum.repos.d/logstash.repo`
+- 将以下内容写到此文件中
+``` repo
+[logstash-5.x]
+name=Elastic repository for 5.x packages
+baseurl=https://artifacts.elastic.co/packages/5.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+```
+- 其实，上述步骤和安装elasticsearch步骤一致，可以忽略！
+
+#### Install
+- `yum install logstash`
+#### start/stop logstash service
+  - `systemctl start/stop logstash`
+#### 查看Logstash版本
+  - `/usr/share/logstash/bin/logstash -V`
+- You can set options in the Logstash settings file, logstash.yml, to control Logstash execution. 
+- 至此，ELK三大组件基本安装完毕，接下来就是配置服务了！
