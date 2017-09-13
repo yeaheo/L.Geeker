@@ -18,7 +18,9 @@
      or check permissions of your X-Server
     (See "man X" resp. "man xhost" for details)
     ```
-    
+- 解决办法：
+  - `yum install libreoffice-headless`
+
 ### 其他转化格式的工具
 - The drawback of the above method of converting xlsx files using Gnumeric is that you need to install Gnumeric which may be too bloated software to install just for file conversion. A more lightweight way is to use xlsx2csv which is a python tool for xlsx to csv conversion
 - 具体使用方法
