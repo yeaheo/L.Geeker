@@ -146,4 +146,7 @@
   - `systemctl status etcd`
   - `etcdctl ls`
 
+- 集群配置
+- 若要部署多节点集群也比较简单，只要更改etcd.conf文件以及etcd.service添加相应配置即可
+- 可以参考链接：<https://github.com/coreos/etcd/blob/master/Documentation/op-guide/clustering.md>
 
