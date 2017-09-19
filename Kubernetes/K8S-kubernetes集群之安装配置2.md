@@ -32,3 +32,43 @@
   - `systemctl status flanneld`
   - `systemctl enable flanneld`
 
+### 安装Kubernetes
+- 在这里，为了能够安装最新版本的Kubernetes，我是直接使用GitHub上的release里的二进制文件安装
+- GitHub上的kubernetes地址：<https://github.com/kubernetes/kubernetes/releases>
+- 执行下面命令进行安装：
+  - `wget https://codeload.github.com/kubernetes/kubernetes/tar.gz/v1.7.6`
+  - `tar xf kubernetes.tar.gz`
+  - `cd kubernetes`
+  - `./cluster/get-kube-binaries.sh`
+  - `cd server`
+  - `tar xvf kubernetes-server-linux-amd64.tar.gz`
+  - `cd kubernetes/server/bin`
+  - `rm -f *_tag *.tar`
+  - `chmod 755 *`
+  - `cp * /usr/bin` & `mv * /usr/bin`
+  - 解压完后获得的二进制文件如下：
+    ``` xml
+    cloud-controller-manager
+    hyperkube
+    kubeadm
+    kube-aggregator
+    kube-apiserver
+    kube-controller-manager
+    kubectl
+    kubefed
+    kubelet
+    kube-proxy
+    kube-scheduler
+    ```
+  - 在`cluster/juju/layers/kubernetes-master/templates`目录下有service和环境变量配置文件的模板，这个模板本来是为了使用[juju](https://jujucharms.com/)安装写的。
+
+### Master节点配置
+- Master节点需要配置的kubernetes的组件有：
+  ``` xml
+  kube-apiserver
+  kube-controller-manager
+  kube-scheduler
+  kube-proxy
+  kubectl
+  ```
+  
