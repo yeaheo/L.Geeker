@@ -109,7 +109,7 @@
   ```
 - 准备系统服务文件，将其添加到系统服务
   - `vim /usr/lib/systemd/system/etcd.service`
-  - 添加如下内容：
+  - 添加如下内容：
   - 
   ``` xml
   [Unit]
