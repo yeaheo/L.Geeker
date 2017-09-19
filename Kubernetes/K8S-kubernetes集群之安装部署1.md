@@ -107,3 +107,29 @@
   # examples for -log-package-levels etcdserver=WARNING,security=DEBUG
   # ETCD_LOG_PACKAGE_LEVELS=""
   ```
+- 准备系统服务文件，将其添加到系统服务
+  - `vim /usr/lib/systemd/system/etcd.service`
+  - 添加如下内容：
+  - 
+  ``` xml
+  [Unit]
+  Description=Etcd Server
+  After=network.target
+  After=network-online.target
+  Wants=network-online.target
+  
+  [Service]
+  Type=notify
+  WorkingDirectory=/var/lib/etcd/
+  EnvironmentFile=-/etc/etcd/etcd.conf
+  User=etcd
+  # set GOMAXPROCS to number of processors
+  ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/bin/etcd --name=\"${ETCD_NAME}\" --data-dir=\"${ETCD_DATA_DIR}\" --listen-client-  urls=\"${ETCD_LISTEN_CLIENT_URLS}\""
+  Restart=on-failure
+  LimitNOFILE=65536
+  
+  [Install]
+  WantedBy=multi-user.target
+  ```
+  
+
