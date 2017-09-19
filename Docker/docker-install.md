@@ -20,10 +20,10 @@
 
 #### INSTALL DOCKER CE
 - Update the yum package index.
-  - `yum install docker-ce`
+  - `yum -y install docker-ce`
 
 - Install the latest version of Docker CE, or go to the next step to install a specific version.
-  - `yum install docker-ce`
+  - `yum -y install docker-ce`
 
 - On production systems, you should install a specific version of Docker CE instead of always using the latest. List the available versions. This example uses the sort -r command to sort the results by version number, highest to lowest, and is truncated.
   - `yum list docker-ce.x86_64  --showduplicates | sort -r`
