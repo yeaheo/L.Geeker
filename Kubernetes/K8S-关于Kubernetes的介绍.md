@@ -35,3 +35,8 @@
 - kube-proxy负责为Service提供cluster内部的服务发现和负载均衡；
 - Kubernetes整体架构如下图所示：
   - ![Kubernetes整体架构](https://github.com/yoo2767/youger/blob/master/images/architecture.png)
+
+### 参考资料:
+- kubernetes官方网站：<https://kubernetes.io>
+- kubernetes中文社区：<https://www.kubernetes.org.cn/>
+- kubernetes官网翻译：<https://www.kubernetes.org.cn/k8s>
