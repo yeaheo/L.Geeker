@@ -58,6 +58,7 @@
 - 准备etcd配置文件
   - `vim /etc/etcd/etcd.conf`
   - 添加如下内容：
+  - 
   ``` conf 
   # [member]
   ETCD_NAME=default
