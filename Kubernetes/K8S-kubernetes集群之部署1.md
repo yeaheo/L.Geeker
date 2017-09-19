@@ -1,5 +1,9 @@
 ## Kubernetes集群安装部署——Master
 
+- 本部分主要是MASTER及NODES环境准备，再就是在MASTER上安装docker及ETCD服务
+
+
+
 ### 安装部署参考资料
 - Kubernetes官方网站：<https://kubernetes.io>
 - Kubernetes中文社区：<https://www.kubernetes.org.cn/>
@@ -29,6 +33,7 @@
 #### 安装Docker
 - 因为Master及node在一台机器上，所以master和node节点都需要安装docker
 - docker安装参考：[Docker安装部署](../Docker/docker-install.md)
+- 其他node节点也需要安装Docker，操作同上。
 
 #### 安装ETCD
 - etcd下载地址：<https://github.com/coreos/etcd/releases>
