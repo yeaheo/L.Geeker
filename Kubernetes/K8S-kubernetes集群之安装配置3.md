@@ -180,6 +180,14 @@
   # Add your own!
   KUBE_SCHEDULER_ARGS=""
   ```
+- 至此，master上的所有组件基本安装配置完成！我们可以启动服务查看一下：
+  ``` bash
+  for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler flanneld; do
+    systemctl restart $SERVICES
+    systemctl enable $SERVICES
+    systemctl status $SERVICES
+  done
+  ```
   
 
 
