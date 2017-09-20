@@ -144,5 +144,11 @@
   # Add your own!
   KUBE_CONTROLLER_MANAGER_ARGS=""
   ```
+
+### 配置kube-scheduler
+- 准备系统服务文件，并添加为系统服务
+  - `vim /usr/lib/systemd/system/kube-scheduler.service`
+  - 添加如下内容：
+  ``` xml
   
 
