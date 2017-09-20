@@ -1,4 +1,5 @@
-## Kubernetes集群安装部署—Master组件配置
+## Kubernetes集群安装部署—Master
+- 此部分主要是记录K8S集群中，master的各个组件的配置
 
 ### Master节点配置
 - Master节点需要配置的kubernetes的组件有：
