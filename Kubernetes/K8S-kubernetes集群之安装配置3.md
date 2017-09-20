@@ -48,9 +48,10 @@
   ```
 - 创建kubernetes的配置文件目录`/etc/kubernetes`
   - `mkdir /etc/kubernetes`
-- 配置`/etc/kubernetes/config`文件
+- 添加`/etc/kubernetes/config`文件
   - `vim /etc/kubernetes/config`
   - 添加如下内容：
+  - 
   ``` xml
   ###
   # kubernetes system config
@@ -75,3 +76,36 @@
   # How the controller-manager, scheduler, and proxy find the apiserver
   KUBE_MASTER="--master=http://192.168.8.60:8080"
   ```
+  
+- 添加`/etc/kubernetes/apiserver`文件
+  - `vim /etc/kubernetes/apiserver`
+  - 添加如下内容：
+  ``` xml
+  ###
+  ## kubernetes system config
+  ##
+  ## The following values are used to configure the kube-apiserver
+  ##
+  #
+  ## The address on the local server to listen to.
+  KUBE_API_ADDRESS="--address=192.168.8.60"
+  #
+  ## The port on the local server to listen on.
+  KUBE_API_PORT="--port=8080"
+  #
+  ## Port minions listen on
+  KUBELET_PORT="--kubelet-port=10250"
+  #
+  ## Comma separated list of nodes in the etcd cluster
+  KUBE_ETCD_SERVERS="--etcd-servers=http://127.0.0.1:2379"
+  #
+  ## Address range to use for services
+  KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
+  #
+  ## default admission control policies
+  KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
+  #
+  ## Add your own!
+  #KUBE_API_ARGS=""
+  ```
+  
