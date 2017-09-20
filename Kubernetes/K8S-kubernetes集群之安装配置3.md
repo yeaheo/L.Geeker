@@ -5,10 +5,15 @@
 - Master节点需要配置的kubernetes的组件有：
   ``` xml
   etcd
+  flannel
   kube-apiserver
   kube-controller-manager
   kube-scheduler
   ```
+### 配置etcd、flannel
+- 配置etcd服务，在第一部分已经配置完成，详情参见[etcd配置](K8S-kubernetes集群之安装配置1.md)
+- 配置flannel服务，在第二部分已经配置完成，详情参见[flannel配置](K8S-kubernetes集群之安装配置2.md)
+
 ### 配置kube-apiserver
 - 准备系统服务文件，并添加为系统服务
 - `vim /usr/lib/systemd/system/kube-apiserver.service`
