@@ -47,10 +47,10 @@
   WantedBy=multi-user.target
   ```
 - 创建kubernetes的配置文件目录`/etc/kubernetes`
-  - `mkdir /etc/kubernetes`
+- `mkdir /etc/kubernetes`
 - 添加`/etc/kubernetes/config`文件
-  - `vim /etc/kubernetes/config`
-  - 添加如下内容：
+- `vim /etc/kubernetes/config`
+- 添加如下内容：
   
   ``` xml
   ###
@@ -78,8 +78,8 @@
   ```
   
 - 添加`/etc/kubernetes/apiserver`文件
-  - `vim /etc/kubernetes/apiserver`
-  - 添加如下内容：
+- `vim /etc/kubernetes/apiserver`
+- 添加如下内容：
   ``` xml
   ###
   ## kubernetes system config
@@ -108,12 +108,12 @@
   ## Add your own!
   #KUBE_API_ARGS=""
   ```
-  - `KUBE_ADMISSION_CONTROL`参数是Kubernetes的安全机制配置，这些安全机制都是以插件的形式用来对API Serve进行准入控制，一开始我们没有配置ServiceAccount，这是为了方便集群之间的通信，不需要进行身份验证。如果你需要更高级的身份验证和鉴权的话就需要加上它了。
+- `KUBE_ADMISSION_CONTROL`参数是Kubernetes的安全机制配置，这些安全机制都是以插件的形式用来对API Serve进行准入控制，一开始我们没有配置ServiceAccount，这是为了方便集群之间的通信，不需要进行身份验证。如果你需要更高级的身份验证和鉴权的话就需要加上它了。
 
 ### 配置kube-controller-manager
 - 准备系统服务文件，并添加为系统服务
-  - `vim /usr/lib/systemd/system/kube-controller.service`
-  - 添加如下内容：
+- `vim /usr/lib/systemd/system/kube-controller.service`
+- 添加如下内容：
   ``` xml
   Description=Kubernetes Controller Manager
   Documentation=https://github.com/GoogleCloudPlatform/kubernetes
@@ -133,8 +133,8 @@
   WantedBy=multi-user.target
   ```
 - 添加`/etc/kubernetes/controller-manager`文件
-  - `vim /etc/kubernetes/controller-manager`
-  - 添加如下内容：
+- `vim /etc/kubernetes/controller-manager`
+- 添加如下内容：
   ``` xml
   ###
   # The following values are used to configure the kubernetes controller-manager
@@ -147,8 +147,39 @@
 
 ### 配置kube-scheduler
 - 准备系统服务文件，并添加为系统服务
-  - `vim /usr/lib/systemd/system/kube-scheduler.service`
-  - 添加如下内容：
+- `vim /usr/lib/systemd/system/kube-scheduler.service`
+- 添加如下内容：
   ``` xml
+  [Unit]
+  Description=Kubernetes Scheduler Plugin
+  Documentation=https://github.com/GoogleCloudPlatform/kubernetes
   
+  [Service]
+  EnvironmentFile=-/etc/kubernetes/config
+  EnvironmentFile=-/etc/kubernetes/scheduler
+  ExecStart=/usr/bin/kube-scheduler \
+      $KUBE_LOGTOSTDERR \
+      $KUBE_LOG_LEVEL \
+      $KUBE_MASTER \
+      $KUBE_SCHEDULER_ARGS
+  Restart=on-failure
+  LimitNOFILE=65536
+  
+  [Install]
+  WantedBy=multi-user.target
+  ```
+- 添加`/etc/kubernetes/scheduler `文件
+- `vim /etc/kubernetes/scheduler `
+- 添加如下内容：
+  ``` xml
+  ###
+  # kubernetes scheduler config
+  
+  # default config should be adequate
+  
+  # Add your own!
+  KUBE_SCHEDULER_ARGS=""
+  ```
+  
+
 
