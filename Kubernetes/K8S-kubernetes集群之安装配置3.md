@@ -88,7 +88,7 @@
   ##
   #
   ## The address on the local server to listen to.
-  KUBE_API_ADDRESS="--address=192.168.8.60"
+  KUBE_API_ADDRESS="--address=127.0.0.1"
   #
   ## The port on the local server to listen on.
   KUBE_API_PORT="--port=8080"
