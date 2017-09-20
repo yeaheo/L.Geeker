@@ -20,8 +20,8 @@
 - 所有实验主机都是虚拟机，系统CentOS7.3
   ``` xml
   192.168.8.60   test-node7 master/node  kube-apiserver kube-controller-manager kube-scheduler kubelet kube-proxy etcd flannel
-  192.168.8.61   test-node6 node         kubectl kube-proxy docker flannel
-  192.168.8.62   test-node8 node         kubectl kube-proxy docker flannel
+  192.168.8.61   test-node6 node         kubelet kube-proxy docker flannel
+  192.168.8.62   test-node8 node         kubelet kube-proxy docker flannel
   ```
 - 具体环境
   - CentOS 7.3.1611
