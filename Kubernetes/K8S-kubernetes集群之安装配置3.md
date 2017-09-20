@@ -51,7 +51,7 @@
 - 添加`/etc/kubernetes/config`文件
   - `vim /etc/kubernetes/config`
   - 添加如下内容：
-  - 
+  
   ``` xml
   ###
   # kubernetes system config
