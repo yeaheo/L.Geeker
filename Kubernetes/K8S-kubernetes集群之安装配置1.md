@@ -137,7 +137,7 @@
   WantedBy=multi-user.target
   ```
 - 注意：
-  - 在启动etcd服务的时候需要先做些准备工作，否则启动会报错:
+- 在启动etcd服务的时候需要先做些准备工作，否则启动会报错:
   - `mkdir /var/lib/etcd/default.etcd`
   - `chmod -R 777 /var/lib/etcd/default.etcd`
 - 启动并校验
