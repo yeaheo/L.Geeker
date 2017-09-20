@@ -117,4 +117,19 @@
   # Add your own!
   KUBE_PROXY_ARGS=""                        
   ```
+- 需要注意的是：
+- kube-proxy的配置与master节点的kube-proxy配置相同。
+- node节点kubelet的配置需要修改KUBELET_HOST为node节点的hostname，其它配置与master相同。
 
+### 配置flannel
+- node上的flannel的配置过程和master上的一致，详情参见[flannel配置](K8S-kubernetes集群之安装配置2.md)
+
+### 启动并校验
+  ``` xml
+  for SERVICES in kube-proxy kubelet flanneld; do
+    systemctl restart $SERVICES
+    systemctl enable $SERVICES
+    systemctl status $SERVICES
+  done
+  ```
+  
