@@ -8,7 +8,11 @@
   kube-proxy
   flannel
   ```
-  
+
+- 需要注意的是：
+- kube-proxy的配置与master节点的kube-proxy配置相同。
+- node节点kubelet的配置需要修改KUBELET_HOST为node节点的hostname，其它配置与master相同。
+
 ### 安装Docker
 - 因为Master及node在一台机器上，所以master和node节点都需要安装docker
 - docker安装参考：[Docker安装部署](../Docker/docker-install.md)
@@ -117,7 +121,7 @@
   # Add your own!
   KUBE_PROXY_ARGS=""                        
   ```
-- 需要注意的是：
+- 再次确认是：
 - kube-proxy的配置与master节点的kube-proxy配置相同。
 - node节点kubelet的配置需要修改KUBELET_HOST为node节点的hostname，其它配置与master相同。
 
