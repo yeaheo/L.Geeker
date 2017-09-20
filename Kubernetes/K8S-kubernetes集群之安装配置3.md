@@ -4,11 +4,10 @@
 ### Master节点配置
 - Master节点需要配置的kubernetes的组件有：
   ``` xml
+  etcd
   kube-apiserver
   kube-controller-manager
   kube-scheduler
-  kube-proxy
-  kubectl
   ```
 ### 配置kube-apiserver
 - 准备系统服务文件，并添加为系统服务
