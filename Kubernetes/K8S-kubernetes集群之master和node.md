@@ -46,3 +46,10 @@
 - docker用于运行容器。
 
 #### flanneld
+
+
+#### Master和node架构图
+- Master架构图如下图所示：
+- ![Master架构图](../images/k8smaster.png "Master架构图")
+- Node架构图如下图所示：
+- ![Node架构图](../images/k8snode.png "Node架构图")
