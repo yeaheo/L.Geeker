@@ -53,3 +53,13 @@
 - ![Master架构图](../images/k8smaster.png "Master架构图")
 - Node架构图如下图所示：
 - ![Node架构图](../images/k8snode.png "Node架构图")
+
+#### 其他组件
+- 除了核心组件，还有一些推荐的Add-ons：
+  - kube-dns负责为整个集群提供DNS服务
+  - Ingress Controller为服务提供外网入口
+  - Heapster提供资源监控
+  - Dashboard提供GUI
+  - Federation提供跨可用区的集群
+  - Fluentd-elasticsearch提供集群日志采集、存储与查询
+  
