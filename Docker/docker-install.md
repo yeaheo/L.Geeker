@@ -1,5 +1,6 @@
 # Docker-Install
 - NOTICE: 这次安装的docker客户端是CE版本(g)
+- 具体安装教程参考<https://docs.docker.com/glossary/?term=installation>
 
 #### Uninstall old versions
 - `yum remove docker docker-common docker-selinux docker-engine`
