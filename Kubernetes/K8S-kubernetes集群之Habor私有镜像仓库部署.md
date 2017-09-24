@@ -83,4 +83,10 @@
   ```
 - push镜像
   ``` bash
-  
+  docker tag hello-world:latest 192.168.8.56/library/hello-world:v1
+  docker push 192.168.8.56/library/hello-world:v1
+  ```
+- pull镜像
+  ``` bash
+  docker pull 192.168.8.56/library/hello-world:v1
+  ```
