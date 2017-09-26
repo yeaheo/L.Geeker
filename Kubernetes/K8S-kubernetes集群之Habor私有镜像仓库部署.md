@@ -20,9 +20,9 @@
   - harbor下载地址：<https://github.com/vmware/harbor/releases>，在这里可以选择自己所需要的安装包进行下载。
 
 - Harbor安装步骤
-  - 1、下载软件包
-  - 2、配置harbor.cfg文件
-  - 3、执行脚本文件install.sh进行安装
+  - 1、下载软件包
+  - 2、配置harbor.cfg文件
+  - 3、执行脚本文件install.sh进行安装
 
 - 解压软件包
   - `tar xvf harbor-online-installer-<version>.tgz`
@@ -40,7 +40,7 @@
 - 执行脚本文件install.sh
   - `cd /usr/local/harbor`
   - `./install.sh`
-  - 等待即可，离线安装速度还是很快的
+  - 等待即可，离线安装速度还是很快的
 - 待脚本跑完之后使用docke-compose ps即可查看，常用命令包含以下几个：
   - `docker-compose up -d`  后台启动，如果容器不存在根据镜像自动创建
   - `docker-compose down -v` 停止容器并删除容器
@@ -60,15 +60,15 @@
   Error response from daemon: Get https://192.168.8.56/v2/: dial tcp 192.168.8.56
   ```
 - 解决方案
-  - 修改docker配置，添加docker启动相关文件`/etc/docker/daemon.json`
+  - 修改docker配置，添加docker启动相关文件`/etc/docker/daemon.json`
   - `vim /etc/docker/daemon.json`
-  - 添加如下内容:
+  - 添加如下内容:
   ``` json
   { "insecure-registries":["192.168.8.56"] }
   ```
   - 重启docker即可
   - `systemctl restart docker.service`
-  - 在做测试的时候，重启docker后发现依然报错，提示“拒绝访问”,后来发现80端口不是开启状态，需要重新启动harbor
+  - 在做测试的时候，重启docker后发现依然报错，提示“拒绝访问”,后来发现80端口不是开启状态，需要重新启动harbor
   - `docker-compose stop`
   - `docker-compose start`
 - 至此，所有操作基本完成！
@@ -83,10 +83,11 @@
   ```
 - push镜像
   ``` bash
-  docker tag hello-world:latest 192.168.8.56/library/hello-world:v1
-  docker push 192.168.8.56/library/hello-world:v1
-  ```
+  docker tag hello-world:latest 192.168.8.56/library/hello-world:v1
+  docker push 192.168.8.56/library/hello-world:v1
+  ```
 - pull镜像
-  ``` bash
-  docker pull 192.168.8.56/library/hello-world:v1
-  ```
+  ``` bash
+  docker pull 192.168.8.56/library/hello-world:v1
+  ```
+  
