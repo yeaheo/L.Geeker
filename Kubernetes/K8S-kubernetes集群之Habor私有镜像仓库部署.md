@@ -17,7 +17,7 @@
 ### 安装Harbor
 - 同样的，harbor的安装方式有两种，一种是在线安装，一种是离线安装，在这里为了快速安装我们选择离线安装，因为在线安装会在线下载所需镜像，速度较慢。
 - 下载安装包
-  - harbor下载地址：<https://github.com/vmware/harbor/releases>，在这里可以选择自己所需要的安装包进行下载。
+  - harbor下载地址：<https://github.com/vmware/harbor/releases>，在这里可以选择自己所需要的安装包进行下载。
 
 - Harbor安装步骤
   - 1、下载软件包
