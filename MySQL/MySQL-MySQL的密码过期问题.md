@@ -35,4 +35,4 @@
   [mysqld]
   default_password_lifetime=0  #设置密码永不失效
   ```
-  
+- 修改完成，重启MySQL服务器即可。
