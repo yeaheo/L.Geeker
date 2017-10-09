@@ -29,3 +29,10 @@
   或者
   ALTER USER 'root'@'localhost' PASSWORD EXPIRE INTERVAL 90 DAY;  90天过期
   ```
+### 设置密码永不失效
+- 修改MySQL的配置文件my.cnf，在其中加入如下内容：
+  ``` cnf
+  [mysqld]
+  default_password_lifetime=0  #设置密码永不失效
+  ```
+  
