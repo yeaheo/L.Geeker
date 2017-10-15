@@ -97,9 +97,9 @@
    ```
 - 重启docker
   - `systemctl restart docker.service`
-  - 注意：
-    - 此时docker会启动失败，原因是还存在与docker相关的进程
-    - 解决办法是杀掉docker相关进程
+  - 注意：
+    - 此时docker会启动失败，原因是还存在与docker相关的进程
+    - 解决办法是杀掉docker相关进程
     - `ps axf | grep docker | grep -v grep | awk '{print "kill -9 " $1}' | sudo sh `
 - 重启kubelet
   - `systemctl restart kubelet.service`
