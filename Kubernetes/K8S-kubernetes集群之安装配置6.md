@@ -62,7 +62,7 @@
 - `source /run/flannel/subnet.env`
 - `docker daemon --bip=${FLANNEL_SUBNET} --mtu=${FLANNEL_MTU} &`
 - 注意：
-  - 当我们执行第二条命令的时候会提示我们先关掉docker，并且需要使用`dockerd`代替`docker daemon`即：
+  - 当我们执行第二条命令的时候会提示我们先关掉docker，并且需要使用`dockerd`代替`docker daemon`即：
   - `dockerd --bip=${FLANNEL_SUBNET} --mtu=${FLANNEL_MTU} &`
 - 现在查询etcd中的内容可以看到：
   ``` xml
