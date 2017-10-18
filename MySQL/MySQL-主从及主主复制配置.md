@@ -55,13 +55,13 @@
   mysql> start slave;
   mysql> show slave status\G;
   ```
-  - 出现以下信息表示主从设置完成，128为31的从数据库
-    ``` bash
-    ......
-    Slave_IO_Running: Yes
-    Slave_SQL_Running: Yes
-    ......
-    ```
+- 出现以下信息表示主从设置完成，128为31的从数据库
+  ``` bash
+  ......
+  Slave_IO_Running: Yes
+  Slave_SQL_Running: Yes
+  ......
+  ```
 ### 配置主主复制
 - 主主复制是从主从复制基础上配置的，可以说是192.168.8.31和192.168.8.128互为主从
 - 在主数据库(192.168.8.128)上授权从数据库相关账号，使其可以访问主数据库
@@ -81,11 +81,11 @@
   mysql> start slave;
   mysql> show slave status\G;
   ```
-  - 出现以下信息表示主从设置完成，31为128的从数据库
-    ``` bash
-    ......
-    Slave_IO_Running: Yes
-    Slave_SQL_Running: Yes
-    ......
-    ```
+- 出现以下信息表示主从设置完成，31为128的从数据库
+  ``` bash
+  ......
+  Slave_IO_Running: Yes
+  Slave_SQL_Running: Yes
+  ......
+  ```
 - 至此，主从/主主配置完成！
