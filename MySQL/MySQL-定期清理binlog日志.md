@@ -33,3 +33,9 @@
 
 - 为保证在MySQL服务重启后仍然有效，需要修改配置文件，在[mysqld]段中添加如下内容：
 - `expire_logs_days = 5`
+
+### 直接命令行不需要登陆MySQL
+- 有时候我们不需要登陆MySQL数据库来执行命令，可以直接在命令行执行即可，但这样MySQL的相关账号信息或暴露，不安全
+- 示例：
+- `mysql -uroot -pctsig126 -e "show global variables like '%expire_logs_days%';"`
+- 一般在`-e`后添加需要执行的命令即可。
