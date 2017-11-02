@@ -2,7 +2,7 @@
 # Description: CentOS7更换国内163源
 # Date: 2017-07-23
 # Author: Lv Xiaoteng
-# Email: yeah6066@gmail.com
+# Email: youger.lv@gmail.com
 
 # 备份原yum源
 cd /etc/yum.repos.d/
