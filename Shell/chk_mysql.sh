@@ -4,7 +4,7 @@
 # Revision:    1.0
 # Date:        2017/05/19
 # Author:      Lv Xiaoteng
-# Email:      youger.lv@gmail.com
+# Email:       youger.lv@gmail.com
 # Description: 
 # Notes:       ~
 # -------------------------------------------------------------------------------
