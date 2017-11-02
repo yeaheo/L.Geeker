@@ -4,8 +4,7 @@
 # Revision:    1.0
 # Date:        2017/05/19
 # Author:      Lv Xiaoteng
-# Email:       yoona2767@gmail.com
-# Website:     https://github.com/yoo2767
+# Email:      youger.lv@gmail.com
 # Description: 
 # Notes:       ~
 # -------------------------------------------------------------------------------
