@@ -2,7 +2,7 @@
 # Description: autodeploy tomcat
 # Author: Lv Xiaoteng
 # Date: 2017-06-29
-# Email: <yeah6066@gmail.com>
+# Email: <youger.lv@gmail.com>
 
 echo "################开始自动部署################"
 
