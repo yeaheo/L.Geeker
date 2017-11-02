@@ -13,7 +13,7 @@
 - 官方CentOS安装教程：<https://kubernetes.io/docs/getting-started-guides/centos/centos_manual_config/>
 
 ### Kubernetes集群之Master安装部署
-- 本文是在没有启用TLS的情况下安装的kubernetes，还请大家参照[kubernetes-handbook](https://jimmysong.io/kubernetes-handbook/)安装。
+- 本文是在没有启用TLS的情况下安装的kubernetes，还请大家参照[kubernetes-handbook](https://jimmysong.io/kubernetes-handbook/cloud-native/kubernetes-and-cloud-native-app-overview.html)安装。
 - 本文采用的是二进制的安装方式
 
 #### 安装环境
