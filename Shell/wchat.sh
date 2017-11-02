@@ -2,7 +2,7 @@
 # FileName: wchat.sh
 # Description: send message to wechat app
 # Author: Lv Xiaoteng
-# Email: yeah6066@gmail.com
+# Email: youger.lv@gmail.com
 # Date: Tue Oct 10 17:16:16 HKT 2017
 
 PURL="http://report.ctsig.com/wwx/send/news"
