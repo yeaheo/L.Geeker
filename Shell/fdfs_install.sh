@@ -2,7 +2,7 @@
 # Description: the script to install fastdfs
 # Date: 2017-07-24
 # Author: Lv Xiaoteng
-# Email: <yeah6066@gmail.com>
+# Email: <youger.lv@gmail.com>
 
 # download libfastcommon source package from github and install it
 # the github address: <https://github.com/happyfish100/libfastcommon.git>
