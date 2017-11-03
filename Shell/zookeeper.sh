@@ -4,7 +4,7 @@
 # Revision:    1.0
 # Date:        2017/11/01
 # Author:      Lv Xiaoteng
-# Email:       yeah6066@gmail.com
+# Email:       youger.lv@gmail.com
 # Description: the script to install zookeeper cluster
 # Notes:       
 # -------------------------------------------------------------------------------
