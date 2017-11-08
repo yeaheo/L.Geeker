@@ -1,6 +1,6 @@
 ## FastDFS配置Nginx模块
 - 安装了 FastDFS 后，并配置启动了 Tracker 和 Storage 服务，已经可以上传文件了，但是我没有上传测试，因为上传成功我看不了，所以，需要配合 Nginx 来进行文件的上传下载，这一篇就安装 Nginx 以及结合 fastdfs-nginx-module 模块使用。
-- Nginx的安装过程具体参见[nginx安装](../Nginx/Nginx-安装及配置.md)
+- Nginx的安装过程具体参见[Nginx安装](../Nginx/Nginx-安装及配置.md)
 
 #### 下载fastdfs-nginx-module源代码
 - `git clone https://github.com/happyfish100/fastdfs-nginx-module`
@@ -34,6 +34,7 @@
   ```
   - 192.168.198.129是Tracker服务器IP地址
 - 接着我们需要把fastdfs下面的配置中还没有存在/etc/fdfs中的拷贝进去
+  - `cp mod_fastdfs.conf /etc/fdfs/`
   - `cp anti-steal.jpg http.conf mime.types /etc/fdfs/`
 #### 修改Nginx配置文件
 - 在配置文件中加入：
@@ -41,7 +42,7 @@
   location /group1/M00 {
     root /data/fastdfs/storage/;
     ngx_fastdfs_module;
-  }
+    }
   ```
 - 由于我们配置了group1/M00的访问，我们需要建立一个group1文件夹，并建立M00到data的软链接。
   - `mkdir /data/fastdfs/storage/data/group1`
