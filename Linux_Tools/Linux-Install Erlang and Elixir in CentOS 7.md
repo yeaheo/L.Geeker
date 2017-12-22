@@ -2,7 +2,7 @@
 
 ![Erlang&Elixir](../images/Erlang-and-Elixir.png "Erlang&Elixir")
 
-- In this tutorial, we will be discussing about how to install Erlang and Elixir in CentOS 7 minimal server. Before installing them, let us see a brief explanation of each.
+- **In this tutorial, we will be discussing about how to install Erlang and Elixir in CentOS 7 minimal server. Before installing them, let us see a brief explanation of each.**
 
 ## **About Erlang**
 - **Erlang** is an open source programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang’s runtime system has built-in support for concurrency, distribution and fault tolerance. It is designed at the Ericsson Computer Science Laboratory.
