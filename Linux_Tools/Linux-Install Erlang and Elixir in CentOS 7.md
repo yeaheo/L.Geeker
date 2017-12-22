@@ -34,7 +34,7 @@
 ## **Verify Erlang**
 - Run the following command to verify whether Erlang is installed or not.
   ``` bash
-  erl   # 一般有这个命令表示安装完成
+  erl   # 一般有这个命令表示安装完成
   ```
 ## **Install Elixir**
 - Elixir is available in EPEL repository, but it is very outdated. So, in order to install latest version, we will compile and install it from source file.
@@ -55,7 +55,7 @@
 - Now, It is highly recommended to add Elixir’s bin path to your PATH environment variable. Otherwise, Elixir will not work.
 - To do so, run the following command:
   ``` bash
-  export PATH="$PATH:/usr/local/elixir/bin"
+  export PATH="$PATH:/usr/local/elixir/bin"
   ```
 - Here, I have installed elixir on `/usr/local/elixir/` location. You must replace this path with your actual Elixir installation path.
 
