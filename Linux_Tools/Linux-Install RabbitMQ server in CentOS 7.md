@@ -1,5 +1,7 @@
 ## Install RabbitMQ server in CentOS 7
 
+![RabbitMQ](../images/rabbitmq.jpg "RabbirMQ")
+
 ### **About RabbitMQ**
 - **RabbitMQ** is an open source message broker software, also sometimes known as message-oriented middleware, that implements the Advanced Message Queuing Protocol (AMQP). It is very easy to use, and runs almost on all modern operating systems. It is built on the Open Telecom Platform framework for clustering and failover. RabbitMQ is written in the Erlang programming language, and is actively being developed by Rabbit Technologies Ltd.
 
