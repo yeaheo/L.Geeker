@@ -49,7 +49,7 @@
 
 - Install elixir
   ```bash
-  cd elixir/
+  cd /usr/local/elixir/
   make clean test
   ```
 - Now, It is highly recommended to add Elixir’s bin path to your PATH environment variable. Otherwise, Elixir will not work.
