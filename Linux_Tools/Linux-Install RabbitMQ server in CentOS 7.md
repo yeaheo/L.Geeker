@@ -1,4 +1,4 @@
-## Install RabbitMQ server in CentOS 7
+# Install RabbitMQ server in CentOS 7
 
 ![RabbitMQ](../images/rabbitmq.jpg "RabbirMQ")
 
