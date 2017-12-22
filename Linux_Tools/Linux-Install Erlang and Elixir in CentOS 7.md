@@ -1,4 +1,7 @@
 # Install Erlang and Elixir in CentOS 7
+
+![Erlang&Elixir](../images/Erlang-and-Elixir.png "Erlang&Elixir")
+
 - In this tutorial, we will be discussing about how to install Erlang and Elixir in CentOS 7 minimal server. Before installing them, let us see a brief explanation of each.
 
 ## **About Erlang**
