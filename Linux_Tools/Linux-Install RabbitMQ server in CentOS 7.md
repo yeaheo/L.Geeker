@@ -10,7 +10,7 @@
 ### **Prerequisites**
 - **RabbitMQ** is written using Erlang programming language. So, it is must to install Erlang before installing RabbitMQ.
 
-- To install and configure Erlang in CentOS 7 server, refer the following link.
+- To install and configure Erlang in CentOS 7 server:[Install Erlang and Elixir in CentOS 7](./Linux-Install Erlang and Elixir in CentOS 7.md)
 
 ### **Install RabbitMQ**
 - Once you install Erlang, head over to the RabbitMQ download page for RPM based installers, and download the latest version using command:
