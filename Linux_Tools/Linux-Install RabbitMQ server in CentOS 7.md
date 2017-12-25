@@ -164,6 +164,11 @@
 - **http://ip-address:15672/**
 - The default user name and password of RabbitMQ Management console is ‘guest’ and ‘guest’ .
 - **NOTICE**:When a guest user is logged in, the login fails, so we need to build a new administrator account at this time.
+- 报错信息如下：
+  ``` bash
+  User can only log in via localhost 
+  ```
+  
 
 - Run the following command:
   ``` bash
