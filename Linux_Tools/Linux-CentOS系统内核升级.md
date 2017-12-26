@@ -25,11 +25,11 @@
 - 但是，这只会升级内核到仓库中可用的最新版本,而不是在内核官网中提到的最新版本，其中Red Hat只允许使用前者升级内核。
 - 与 Red Hat 不同，CentOS 允许使用 ELRepo，这是一个第三方仓库，可以将内核升级到最新版本。
 
-- ***启用ELRepo仓库***
+- **启用ELRepo仓库**
 - `rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org`
 - `rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm`
 
-- ***查看可用的内核相关包***
+- **查看可用的内核相关包**
   ``` bash
   [root@ceph-deploy ~]# yum --disablerepo="*" --enablerepo="elrepo-kernel" list available
   Loaded plugins: fastestmirror
@@ -53,7 +53,7 @@
   python-perf.x86_64              
   ```
 - 其中`kernel-ml`为我们需要安装的内核版本
-- ***安装最新的主线稳定内核***
+- **安装最新的主线稳定内核**
 - `yum --enablerepo=elrepo-kernel install kernel-ml`
 
 ### 设置 GRUB 默认的内核版本
@@ -69,7 +69,7 @@
   GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet"
   GRUB_DISABLE_RECOVERY="true"
   ```
-- ***重新创建内核配置***
+- **重新创建内核配置**
 - `grub2-mkconfig -o /boot/grub2/grub.cfg`
 - 重启并验证最新的内核已作为默认内核。
   
