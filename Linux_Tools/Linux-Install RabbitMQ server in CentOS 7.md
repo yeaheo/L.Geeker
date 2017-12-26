@@ -161,7 +161,7 @@
   chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
   ```
 - Now. open your web browser and navigate to the following URL to access your RabbitMQ server management console.
-- **http://ip-address:15672/**
+- http://ip-address:15672/
 - The default user name and password of RabbitMQ Management console is ‘guest’ and ‘guest’ .
 - **NOTICE**:When a guest user is logged in, the login fails, so we need to build a new administrator account at this time.
 - 报错信息如下：
