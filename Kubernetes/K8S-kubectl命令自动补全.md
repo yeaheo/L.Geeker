@@ -7,4 +7,5 @@
   echo "source <(kubectl completion bash)" >> ~/.bashrc
   ```
 - 然后就可以自动补全了。
+- 如果是普通用户上述命令依旧可用，复制执行即可！
 - 如果发现不能自动补全，可以尝试安装 `bash-completion` 然后刷新即可！
