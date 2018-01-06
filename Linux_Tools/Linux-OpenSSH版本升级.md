@@ -71,6 +71,10 @@
   OpenSSH_7.6p1, OpenSSL 1.0.2k-fips  26 Jan 2017
   ```
 - 至此升级完成，需要注意的是升级之前需要先备份好旧的文件或者配置TELNET服务，避免升级失败导致无法远程连接SSH服务。
+- 如果先前配置了TELNET服务，需要做的是在检查安装是否完毕后卸载TELNET服务，并去掉配置TELNET时的注释
+  ``` bash
+  yum -y remove telnet-server xinetd telnet
+  ```
   
 
 
