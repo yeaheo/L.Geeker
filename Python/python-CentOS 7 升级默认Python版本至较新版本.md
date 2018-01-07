@@ -1,6 +1,5 @@
 ## CentOS 7 升级默认Python版本至较新版本
-- CentOS7系统目前默认python环境版本号为2.7.5，在实际的开发、测试环境中我们可能需要较高的版本，但是Centos操作系统自带软件可能依赖python2.7.5版本，所以
-本次我们保留旧版本的pthon，实现多版本python共存。
+- CentOS7系统目前默认python环境版本号为2.7.5，在实际的开发、测试环境中我们可能需要较高的版本，但是Centos操作系统自带软件可能依赖python2.7.5版本，所以本次我们保留旧版本的pthon，实现多版本python共存。
 
 - **查看系统版本及默认python版本**
   ``` bash
@@ -58,5 +57,5 @@
   python get-pip.py
   ln -s /usr/local/bin/pip2.7 /usr/bin/pip   #建立软连接
   ```
+- **升级其他版本的Python与此类似只是将python2.7改为python3.x即可**
 
-  
