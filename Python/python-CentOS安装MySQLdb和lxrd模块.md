@@ -12,8 +12,10 @@
   >>> 
   ```
 - 开始安装
-- `yum -y install python-setuptools`
-- `easy_install xlrd`
+  ``` bash
+  yum -y install python-setuptools
+  easy_install xlrd
+  ```
 - 安装后验证：
   ``` xml
   >>> import xlrd
@@ -31,10 +33,12 @@
   >>> 
   ```
 - 开始安装
-- `yum -y install python-setuptools`
-- `easy_install pip`
-- `yum -y install python-devel`
-- `pip install mysql-python`
+  ``` bash
+  yum -y install python-setuptools
+  easy_install pip
+  yum -y install python-devel
+  pip install mysql-python
+  ```
 - 安装后验证：
   ``` xml
   >>> import MySQLdb
