@@ -31,3 +31,4 @@ virt-install --name ctsig-test --memory 4096 --vcpus=1 --disk path=/home/kvm/kvm
 --os-type=linux,windows
 --os-variant=
 ```
+- 为了可以连接创建的虚拟机，建议安装VNC。
