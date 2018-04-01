@@ -169,7 +169,7 @@
   User can only log in via localhost 
   ```
 - 在这里 我们需要创建一个新的管理员账号：
-  ``` bash
+``` bash
   rabbitmqctl add_user mqadmin mqadmin
   rabbitmqctl set_user_tags mqadmin administrator
   rabbitmqctl set_permissions -p / mqadmin ".*" ".*" ".*"
