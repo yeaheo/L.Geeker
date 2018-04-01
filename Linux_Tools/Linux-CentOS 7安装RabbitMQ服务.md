@@ -2,29 +2,30 @@
 
 ![RabbitMQ](../images/rabbitmq.jpg "RabbirMQ")
 
-### **About RabbitMQ**
-- **RabbitMQ** is an open source message broker software, also sometimes known as message-oriented middleware, that implements the Advanced Message Queuing Protocol (AMQP). It is very easy to use, and runs almost on all modern operating systems. It is built on the Open Telecom Platform framework for clustering and failover. RabbitMQ is written in the Erlang programming language, and is actively being developed by Rabbit Technologies Ltd.
+### **RabbitMQ介绍**
+- **RabbitMQ** 是由 LShift 提供的一个 Advanced Message Queuing Protocol (AMQP) 的开源实现，由以高性能、健壮以及可伸缩性出名的 Erlang 写成，因此也是继承了这些优点。
 
-- In this tutorial, we will see how to install RabbitMQ server in CentOS 7 minimal server.
+- 在这里，我们尝试在CentOS7系统上安装RabbitMQ，安装方式选择yum的安装方式。
 
-### **Prerequisites**
-- **RabbitMQ** is written using Erlang programming language. So, it is must to install Erlang before installing RabbitMQ.
+### **准备工作**
+- **RabbitMQ** 是用 Erlang 语言编写的，所以我们必须先安装 Erlang 环境才能进行下一步的安装。
 
-- To install and configure Erlang in CentOS 7 server:
+- 在 CentOS 7 上安装Erlang和Elixir参见如下链接:
 - [Install Erlang and Elixir in CentOS 7](https://github.com/yeaheo/youger/blob/master/Linux_Tools/Linux-Install%20Erlang%20and%20Elixir%20in%20CentOS%207.md)
 
-### **Install RabbitMQ**
+### **安装 RabbitMQ**
 ![RabbitMQ](../images/RabbirMQ.png "RabbirMQ")
-- Once you install Erlang, head over to the RabbitMQ download page for RPM based installers, and download the latest version using command:
+- 上一步安装好了Erlang后，我们需要去官网下载最新版的RabbitMQ，如下所示：
+- **注意：有时侯在安装的过程中会报错，这个可能是由于 RabbitMQ 和 Erlang 的版本问题，当我们遇到相关错误的时候，可以尝试更换版本。**
   ``` bash
   cd /opt/soft
   # wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.14/rabbitmq-server-3.6.14-1.el7.noarch.rpm
   ```
-- Then, run the following command as root user to add rabbitmq signing key:
+- 增加相关签名 key:
   ``` bash
   # rpm --import https://www.rabbitmq.com/rabbitmq-signing-key-public.asc
   ```
-- Finally, install RabbitMQ server using command:
+- 最后，使用如下命令进行安装:
   ``` bash
   # yum install rabbitmq-server-3.6.14-1.el7.noarch.rpm
   ```
@@ -80,14 +81,14 @@
    
    Complete!
    ```
-- That’s it. We have installed RabbitMQ.
+- 如上所示，RabbitMQ基本安装完成。
 
-- Run the following command to start and enable RabbitMQ service:
+- 启动相关服务:
   ``` bash
   systemctl start rabbitmq-server
   systemctl enable rabbitmq-server
   ```
-- check the status of RabbitMQ server using the following commands:
+- 检查 RabbitMQ 服务的状态:
   ``` bash
   rabbitmqctl status
   ```
@@ -152,28 +153,26 @@
    {uptime,23},
    {kernel,{net_ticktime,60}}]
    ```
-### **Access RabbitMQ management console**
-- RabbitMQ management console will allow you to monitor the server processes via a web browser.
+### **配置RabbitMQ**
+- RabbitMQ 有一个web页面可以辅助我们查看RabbitMQ的状态等信息。
 
-- To enable the RabbitMQ management console, run the following command:
+- 开启web功能:
   ``` bash
   rabbitmq-plugins enable rabbitmq_management
   chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
   ```
-- Now. open your web browser and navigate to the following URL to access your RabbitMQ server management console.
+- 在浏览器访问web ui：
 - http://ip-address:15672/
-- The default user name and password of RabbitMQ Management console is ‘guest’ and ‘guest’ .
-- **NOTICE**:When a guest user is logged in, the login fails, so we need to build a new administrator account at this time.
-- 报错信息如下：
+- 默认登陆账号密码均为`guest`
+- **注意：当我们首次登陆的时候会报错，报错信息如下：**
+- **报错信息如下：
   ``` bash
   User can only log in via localhost 
   ```
-  
-
-- Run the following command:
+- 在这里 我们需要创建一个新的管理员账号，参考如下：** 
   ``` bash
   rabbitmqctl add_user mqadmin mqadmin
   rabbitmqctl set_user_tags mqadmin administrator
   rabbitmqctl set_permissions -p / mqadmin ".*" ".*" ".*"
   ```
-- Then,you can enter the username and password to access RabbitMQ web console:
+- 至此，就可以用新建的管理员账号登陆WEB页面了。
