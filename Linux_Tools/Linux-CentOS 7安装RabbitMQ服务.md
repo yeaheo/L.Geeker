@@ -165,12 +165,11 @@
 - http://ip-address:15672/
 - 默认登陆账号密码均为`guest`
 - **注意：当我们首次登陆的时候会报错，报错信息如下：**
-- **报错信息如下：
   ``` bash
   User can only log in via localhost 
   ```
-- 在这里 我们需要创建一个新的管理员账号，参考如下：** 
-  ``` bash
+- 在这里 我们需要创建一个新的管理员账号：
+  ``` bash
   rabbitmqctl add_user mqadmin mqadmin
   rabbitmqctl set_user_tags mqadmin administrator
   rabbitmqctl set_permissions -p / mqadmin ".*" ".*" ".*"
