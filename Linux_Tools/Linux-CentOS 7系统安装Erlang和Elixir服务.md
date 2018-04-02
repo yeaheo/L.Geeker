@@ -54,6 +54,7 @@
   export PATH="$PATH:/usr/local/elixir/bin"
   ```
 ## **确定 Elixir 的安装结果**
+-
   ``` bash
   iex  # 一般有这个命令表示安装完成
   ```
