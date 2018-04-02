@@ -34,7 +34,7 @@
   ``` bash
   # source /usr/local/rvm/scripts/rvm
   ```
-### 查看 rvm 库中已知的 ruby 版本
+#### 查看 rvm 库中已知的 ruby 版本
   ``` bash
   # rvm list known | grep ruby
   
@@ -50,25 +50,25 @@
   [ruby-]2.4[.1]
   ruby-head
   ```
-### 安装指定版本的 ruby 文件
+#### 安装指定版本的 ruby 文件
   ``` bash
   # rvm install 2.3.3
   ```
-### 将安装的 ruby 版本设置为默认版本
+#### 将安装的 ruby 版本设置为默认版本
   ``` bash
   # rvm use 2.3.3 --default
   Using /usr/local/rvm/gems/ruby-2.3.3
   ```
-### 卸载旧版本的 ruby
+#### 卸载旧版本的 ruby
   ``` bash
   # rvm remove 2.0.0
   ```
-### 检测安装的 ruby 版本
+#### 检测安装的 ruby 版本
   ``` bash
   # ruby --version
   ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
   ```
-### 安装 redis
+#### 安装 redis
   ``` bash
   # gem install redis
   Successfully installed redis-4.0.1
