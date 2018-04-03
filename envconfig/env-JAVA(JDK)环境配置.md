@@ -52,6 +52,8 @@
   # yum install java-1.8.0-openjdk.x86_64
   ```
 - yum 安装的 jdk 默认在`/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.el7_4.x86_64`目录下。
+- 用 yum 安装的 jdk 相关环境变量已经设置好。
+- 验证： `java -verison`
 
 #### 二进制方式配置 java 环境
 - 官方 jdk 下载地址：<http://www.oracle.com/technetwork/java/javase/downloads/index.html>，选择需要安装 jdk 版本下载即可。
@@ -76,8 +78,5 @@
   java version "1.8.0_144"
   Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
   Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
-  上述版本是我已经安装的版本，这里只是举例而已，还需根据自己的版本来验证
   ```
-  
-  
-
+- 上述版本是我已经安装的版本，这里只是举例而已，还需根据自己的版本来验证
