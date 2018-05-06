@@ -1,4 +1,4 @@
-# Install Erlang and Elixir in CentOS 7
+# CentOS 7系统安装Erlang和Elixir服务
 
 ![Erlang&Elixir](../images/Erlang-and-Elixir.png "Erlang&Elixir")
 
