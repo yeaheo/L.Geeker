@@ -79,4 +79,4 @@
   Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
   Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
   ```
-- 上述版本是我已经安装的版本，这里只是举例而已，还需根据自己的版本来验证
+- 上述版本是我已经安装的版本，这里只是举例而已，还需根据自己的实际情况做选择
