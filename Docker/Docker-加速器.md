@@ -9,7 +9,7 @@
   sudo mkdir -p /etc/docker
   sudo tee /etc/docker/daemon.json <<-'EOF'
   {
-    "registry-mirrors": ["https://4u0uxtf7.mirror.aliyuncs.com"]
+    "registry-mirrors": ["https://xx.mirror.aliyuncs.com"]  ## "XX"需要用你自己的阿里云账号登陆获取
   }
   EOF
   sudo systemctl daemon-reload
