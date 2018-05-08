@@ -3,7 +3,7 @@
 
 **There is no shortcut in the world at all, the best shortcut is to rely on their own bit by bit accumulation, the opportunity is to leave the people who are ready!**
 
-**在工作中总结一些有用的知识及踩过的坑，希望可以帮助那些在工作中遇到问题的人们，让我们共同进步！！！**
+**在工作中总结一些有用的知识及踩过的坑，希望可以帮助那些在工作中遇到问题的人们，共勉！**
 
 **Email1: <helleo.cn@gmail.com>**
 **Email2: <youger.lv@live.com>**
