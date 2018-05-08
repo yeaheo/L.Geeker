@@ -1,12 +1,12 @@
 ## 利用脚本安装MySQL数据库
 - 利用脚本安装MySQL主要是利用cmake进行编译的方式
 - 脚本内容如下：
-  ``` xml
+  ``` bash
   #!/bin/bash
   # Description: the scripts install mysql
   # Date: 2017-06-27
   # Auth: Lv Xiaoteng
-  # Email: yeah6066@gmail.com
+  # Email: helleo.cn@gmail.com
 
   # query the mysql rpm
   rpm -q mysql-server &> /dev/null && rpm -e mysql-server --nodeps
