@@ -1,7 +1,7 @@
 ## Docker-配置镜像加速器
 
 - **安装／升级Docker客户端**
-- 你可以通过阿里云的镜像仓库下载:[mirrors.aliyun.com/help/docker-engine](http://mirrors.aliyun.com/help/docker-engine?spm=a2c1q.8351553.0.0.468c7ecb3yKZ7b)
+- 你可以通过阿里云的镜像仓库下载:[阿里云 docker 镜像加速器](https://cr.console.aliyun.com/?spm=a2c4e.11153940.blogcont29941.9.69a569d6cUxp04#/accelerator)
 
 - **配置镜像加速器**
 - 修改daemon配置文件/etc/docker/daemon.json来使用加速器：
