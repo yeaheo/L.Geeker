@@ -3,18 +3,21 @@
 
 ### 下载最新版二进制mysql软件包
 - 下载 MySQL 软件包：
+  
   ``` bash 
   wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
   ```
 
 ### 添加mysql用户
 - 添加 MySQL 相关用户：
+  
   ``` bash
   # useradd -M -s /sbin/nologin mysql
   ```
 
 ### 准备MySQL数据库的安装目录
 - 安装 MySQL：
+  
   ``` bash
   # mv mysql-5.7.17-linux-glibc2.5-x86_64 /usr/local/mysql
   # mkdir -pv /usr/local/mysql/data
@@ -23,6 +26,7 @@
 
 ### 初始化数据库
 - 当我们安装好 MySQL 后需要初始化数据库，具体如下：
+  
   ``` bash
   # /usr/local/mysql/bin/mysqld --initialize --user=mysql --datadir=/usr/local/mysql/data --  basedir=/usr/local/mysql
   # /usr/local/mysql/bin/mysql_ssl_rsa_setup  --datadir=/usr/local/mysql/data
