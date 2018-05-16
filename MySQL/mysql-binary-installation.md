@@ -67,10 +67,12 @@
 
 ### 启动服务修改密码
 - 启动 MySQL 服务，并修改 MySQL 密码：
+  
   ``` bash
   bin/mysqld_safe --user=mysql &
   ```
 - 修改 MySQL 密码：
+  
   ``` bash
   mysql -uroot -p
   
@@ -85,6 +87,7 @@
 
 ### 设置Mysql数据库开机自启
 - 设置 MySQL 数据库开机自启动：
+  
   ``` bash
   chkconfig mysqld on
   ```
