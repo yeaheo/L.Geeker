@@ -5,9 +5,9 @@
 - 下载 MySQL 软件包：
   
   ``` bash 
-  wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
+  # wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
   ```
-  > MySQL 官方下载地址：<https://cdn.mysql.com//Downloads/>，可以在这里找到最新版的 MySQL 软件包进行下载，这里只是做个例子进行说明
+  > MySQL 官方下载地址：<https://cdn.mysql.com//Downloads/>，可以在这里找到最新版的 MySQL 软件包进行下载，这里只是做个例子进行说明
 
 ### 添加mysql用户
 - 添加 MySQL 相关用户：
