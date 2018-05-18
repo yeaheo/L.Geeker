@@ -70,3 +70,5 @@
   ``` bash
   tcp    0   0 0.0.0.0:33679   0.0.0.0:*    LISTEN   19194/redis-server
   ```
+  > 为了安装方便，我写了个 redis 的安装脚本，具体内容参见 [redis-install-script](https://github.com/yeaheo/hello.linux/blob/master/Shell/redis_install_new.sh)
+
