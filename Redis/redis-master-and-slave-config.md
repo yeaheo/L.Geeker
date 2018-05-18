@@ -46,8 +46,31 @@
   .....
   slaveof 172.16.6.94 33679              # 配置 redis 主从必须参数
   .....
-  masterauth CTg-Fls{2018helleo.cn&-93   # 如果 master 节点配置了密码需要增加该参数
+  masterauth CTg-Fls{2018helleo.cn&-93   # 如果 master 节点配置了密码需要增加该参数，否则不需要增加该参数
   ....
   ```
 
-  
+### 分别启动两个主机的 redis 服务
+- 配置完成后，我们需要启动相关服务：
+  ``` bash
+  172.16.6.94:
+  $ redis-server /usr/local/redis/redis.conf
+  172.16.6.93:
+  $ redis-server /usr/local/redis/redis.conf
+  ```
+
+### 验证 redis 主从
+- redis 服务启动之后，我们需要登录到 master 节点的 redis 中查看相关配置：
+  ``` bash
+  [root@ctg-fls-web2 ~]# redis-cli -h 172.16.6.94 -p 33679
+  172.16.6.94:33679> AUTH CTg-Fls{2018helleo.cn&-93
+  OK
+  172.16.6.94:33679> info
+  ......
+  # Replication
+  role:master
+  connected_slaves:1
+  slave0:ip=172.16.6.93,port=33679,state=online,offset=10319,lag=1   # 当输出信息包括如下内容表示 redis 主从配置完成
+  ```
+  > redis 主从配置完成后，默认是读写分离的，写操作主要在 master 上进行，slave 只能读。
+
