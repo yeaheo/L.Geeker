@@ -1,11 +1,14 @@
 ## Nginx+Keepalived实现双主负载均衡的配置
 - 实验环境： 
+  
   ``` xml
   192.168.8.130  Keepalived+Nginx
   192.168.8.131  Keepalived+Nginx
   ```
+
 - 两台机器上分别安装 Nginx 和 Keepalived
-#### 安装Nginx请参见: [Nginx安装教程](Nginx-Install.md)
+
+### 安装Nginx请参见: [Nginx安装教程](Nginx-Install.md)
 - 具体Nginx编译参数如下：
   - `--with-http_stub_status_module`     ：（enable ngx_http_stub_status_module）支持Nginx状态查询
   - `--with-http_ssl_module`             ：（enable ngx_http_ssl_module）支持https
@@ -13,13 +16,13 @@
   - `--with-pcre`                        ：（force PCRE library usage）为了支持rewrite重写功能，必须指定pcre
   
 
-#### 安装Keepalived
+### 安装Keepalived
 - 在这里为了方便，我们采用yum的方式安装Keepalived
   - `yum -y install keepalived`
 - 其实我们也可以源码安装keepalived,其官网地址：<http://www.keepalived.org/software>，具体安装方法参见官网。
 
 
-#### 配置Nginx双负载均衡（利用虚拟主机）
+### 配置Nginx双负载均衡（利用虚拟主机）
 - 编辑8.130主机Nginx配置文件
   - `mkdir /usr/local/nginx/conf.d`
   - `vim /usr/local/nginx/conf/nginx.conf`
@@ -65,7 +68,7 @@
      ```
    - 8.131主机的Nginx配置和8.130主机的类似。
    
-#### 配置两台主机的Keepalived，实现高可用
+### 配置两台主机的Keepalived，实现高可用
 - Keepaliced-A 192.168.8.130/外网IP  VIP：192.168.8.88
 - Keepalived-B 192.168.8.131/外网IP  VIP：192.168.8.89
 
@@ -176,12 +179,3 @@
 - 配置完成，分别启动两台机器的nginx和keepalived服务即可。
 - NOTICE:
   - keepalived配置文件中关于脚本的`weight -2`一定要注释掉才能正常切换。
-
-  
-
-    
-
-
-
-  
-  
