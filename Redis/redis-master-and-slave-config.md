@@ -7,4 +7,46 @@
   master 172.16.6.94
   slave  172.16.6.93
   ```
+### 配置 master 节点
+- 修改 redis 配置文件 `redis.conf`
+- `redis.conf` 默认路径：`/usr/local/redis/redis.conf`
+  > 我的 redis 安装目录为 `/usr/local/redis`
+
+- 修改 redis 配置文件以下几个参数：
+  ``` bash
+  bind 0.0.0.0
+  .....
+  port 33679
+  .....
+  daemonize yes
+  .....
+  logfile "/usr/local/redis/log/redis.log"
+  .....
+  requirepass CTg-Fls{2018helleo.cn&-93
+  .....
+  ```
+  > 这些参数在 [redis 安装](./redis-installation-gide.md) 部分已经修改过了，在这里只是再提示一下，其实在配置 redis 主从同步的时候， master 节点配置文件几乎不用修改。
+  
+### 配置 slave 节点
+- 修改 redis 配置文件 `redis.conf`
+- `redis.conf` 默认路径：`/usr/local/redis/redis.conf`
+  > 我的 redis 安装目录为 `/usr/local/redis`
+
+- 修改 redis 配置文件以下几个参数：
+  ``` bash
+  bind 0.0.0.0
+  .....
+  port 33679
+  .....
+  daemonize yes
+  .....
+  logfile "/usr/local/redis/log/redis.log"
+  .....
+  requirepass CTg-Fls{2018helleo.cn&-93
+  .....
+  slaveof 172.16.6.94 33679              # 配置 redis 主从必须参数
+  .....
+  masterauth CTg-Fls{2018helleo.cn&-93   # 如果 master 节点配置了密码需要增加该参数
+  ....
+  ```
   
