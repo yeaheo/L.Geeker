@@ -42,4 +42,5 @@
   # Copy admin keys and configuration files
   ceph-deploy --overwrite-conf admin deploy node1 node2 node3
   ```
+
 - 如果服务器在香港或者国外，这些操作可以不做，用官方提供的源即可！

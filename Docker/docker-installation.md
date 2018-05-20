@@ -1,5 +1,5 @@
 ## Docker-Install
-- 本次安装的docker客户端是CE版本(g)
+- 本次安装的 docker 客户端是 CE 版本(g)
 - 具体安装教程参考<https://docs.docker.com/glossary/?term=installation>
 
 ### Uninstall old versions
@@ -29,7 +29,7 @@
   yum-config-manager --enable docker-ce-testing
   ```
 
-- You can disable the edge or testing repository by running the yum-config-manager command with the --disable flag. To re-enable it, use the --enable flag. The following command disables the edge repository.
+- You can disable the edge or testing repository by running the yum-config-manager command with the `--disable` flag. To re-enable it, use the `--enable` flag. The following command disables the edge repository.
   
   ```bash
   yum-config-manager --disable docker-ce-edge

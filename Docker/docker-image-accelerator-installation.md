@@ -13,7 +13,7 @@
 - 你可以通过阿里云的镜像仓库下载:[阿里云 docker 镜像加速器](https://cr.console.aliyun.com/?spm=a2c4e.11153940.blogcont29941.9.69a569d6cUxp04#/accelerator)
 
 - **配置镜像加速器**
-- 修改daemon配置文件 `/etc/docker/daemon.json` 来使用加速器：
+- 修改 daemon 配置文件 `/etc/docker/daemon.json` 来使用加速器：
   
   ```bash
   sudo mkdir -p /etc/docker

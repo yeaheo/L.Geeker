@@ -16,13 +16,13 @@
   Sun Jul 30 05:47:14 UTC 2017
   ```
 - 发现两者之间的时间相差了八个小时！
-- 宿主机采用了CST时区，CST应该是指（China Shanghai Time，东八区时间）
-- 容器采用了UTC时区，UTC应该是指（Coordinated Universal Time，标准时间）
+- 宿主机采用了 CST 时区，CST 应该是指（China Shanghai Time，东八区时间）
+- 容器采用了 UTC 时区，UTC 应该是指（Coordinated Universal Time，标准时间）
 
 ### 统一两者的时区有下面几种方法
 
-#### 方法1：共享主机的localtime
-- 创建容器的时候指定启动参数，挂载localtime文件到容器内，保证两者所采用的时区是一致的。
+#### 方法1：共享主机的 localtime
+- 创建容器的时候指定启动参数，挂载 localtime 文件到容器内，保证两者所采用的时区是一致的。
 - 示例如下：
   
   ```bash
@@ -30,16 +30,16 @@
   [root@be91e9bd5d95 /]# date
   Sun Jul 30 14:01:53 CST 2017
   ```
-#### 方法2：复制主机的localtime
+#### 方法2：复制主机的 localtime
 - 示例如下：
-  - 修改前
+- 修改前
   
   ```bash
   [root@ceph-node1 ~]# docker run -i -t centos:latest /bin/bash
   [root@0ce1de90e209 /]# date
   Sun Jul 30 05:47:14 UTC 2017
   ```
-  - 修改后
+- 修改后
   
   ```bash
   [root@ceph-node1 ~]# docker cp /etc/localtime 9ec4c03133dd:/etc
