@@ -1,36 +1,41 @@
-# CentOS 7安装RabbitMQ服务
+## CentOS 7 安装 RabbitMQ 服务
 
 ![RabbitMQ](../images/rabbitmq.jpg "RabbirMQ")
 
-### **RabbitMQ介绍**
+### RabbitMQ 介绍
 - **RabbitMQ** 是由 LShift 提供的一个 Advanced Message Queuing Protocol (AMQP) 的开源实现，由以高性能、健壮以及可伸缩性出名的 Erlang 写成，因此也是继承了这些优点。
 
-- 在这里，我们尝试在CentOS7系统上安装RabbitMQ，安装方式选择yum的安装方式。
+- 在这里，我们尝试在 CentOS7 系统上安装 RabbitMQ ，安装方式选择 yum 的安装方式。
 
-### **准备工作**
+### 准备工作
 - **RabbitMQ** 是用 Erlang 语言编写的，所以我们必须先安装 Erlang 环境才能进行下一步的安装。
 
 - 在 CentOS 7 上安装Erlang和Elixir参见如下链接:
-- [Install Erlang and Elixir in CentOS 7](https://github.com/yeaheo/youger/blob/master/Linux_Tools/Linux-Install%20Erlang%20and%20Elixir%20in%20CentOS%207.md)
+- [Install Erlang and Elixir in CentOS 7](linux-centos-erlang-elixir-installation.md)
 
-### **安装 RabbitMQ**
+### 安装 RabbitMQ
 ![RabbitMQ](../images/RabbirMQ.png "RabbirMQ")
 - 上一步安装好了Erlang后，我们需要去官网下载最新版的RabbitMQ，如下所示：
-- **注意：有时侯在安装的过程中会报错，这个可能是由于 RabbitMQ 和 Erlang 的版本问题，当我们遇到相关错误的时候，可以尝试更换版本。**
-  ``` bash
+  
+  >注意：有时侯在安装的过程中会报错，这个可能是由于 RabbitMQ 和 Erlang 的版本问题，当我们遇到相关错误的时候，可以尝试更换版本。
+  
+  ```bash
   cd /opt/soft
-  # wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.14/rabbitmq-server-3.6.14-1.el7.noarch.rpm
+  wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.14/rabbitmq-server-3.6.14-1.el7.noarch.rpm
   ```
 - 增加相关签名 key:
-  ``` bash
-  # rpm --import https://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+  
+  ```bash
+  rpm --import https://www.rabbitmq.com/rabbitmq-signing-key-public.asc
   ```
 - 最后，使用如下命令进行安装:
-  ``` bash
-  # yum install rabbitmq-server-3.6.14-1.el7.noarch.rpm
+  
+  ```bash
+  yum install rabbitmq-server-3.6.14-1.el7.noarch.rpm
   ```
 - 安装时输出内容如下:
-  ``` bash
+  
+  ```bash
   Loaded plugins: fastestmirror, langpacks
   Examining rabbitmq-server-3.6.14-1.el7.noarch.rpm: rabbitmq-server-3.6.14-1.el7.noarch
   Marking rabbitmq-server-3.6.14-1.el7.noarch.rpm to be installed
@@ -81,19 +86,22 @@
    
    Complete!
    ```
-- 如上所示，RabbitMQ基本安装完成。
+- 如上所示，RabbitMQ 基本安装完成。
 
 - 启动相关服务:
-  ``` bash
+  
+  ```bash
   systemctl start rabbitmq-server
   systemctl enable rabbitmq-server
   ```
 - 检查 RabbitMQ 服务的状态:
-  ``` bash
+  
+  ```bash
   rabbitmqctl status
   ```
 - 输出内容如下:
-  ``` bash
+  
+  ```bash
   Status of node 'rabbit@lv-test-node'
   [{pid,4257},
    {running_applications,
@@ -153,25 +161,28 @@
    {uptime,23},
    {kernel,{net_ticktime,60}}]
    ```
-### **配置RabbitMQ**
-- RabbitMQ 有一个web页面可以辅助我们查看RabbitMQ的状态等信息。
+### 配置RabbitMQ
+- RabbitMQ 有一个 web 页面可以辅助我们查看 RabbitMQ 的状态等信息。
 
 - 开启web功能:
-  ``` bash
+  
+  ```bash
   rabbitmq-plugins enable rabbitmq_management
   chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
   ```
-- 在浏览器访问web ui：
-- http://ip-address:15672/
-- 默认登陆账号密码均为`guest`
-- **注意：当我们首次登陆的时候会报错，报错信息如下：**
-  ``` bash
+- 在浏览器访问 web ui：<http://ip-address:15672/>
+
+- 默认登陆账号密码均为 `guest`
+  
+  > 注意：当我们首次登陆的时候会报错，报错信息如下：
+  
+  ```bash
   User can only log in via localhost 
   ```
 - 在这里 我们需要创建一个新的管理员账号：
-``` bash
+  ```bash
   rabbitmqctl add_user mqadmin mqadmin
   rabbitmqctl set_user_tags mqadmin administrator
   rabbitmqctl set_permissions -p / mqadmin ".*" ".*" ".*"
   ```
-- 至此，就可以用新建的管理员账号登陆WEB页面了。
+- 至此，就可以用新建的管理员账号登陆 WEB 页面了。
