@@ -21,6 +21,7 @@
   yum -y install certbot
   ```
 - 安装完成后，需要进一步执行以下操作:
+  
   ```bash
   wget https://dl.eff.org/certbot-auto
   chmod +x certbot-auto
