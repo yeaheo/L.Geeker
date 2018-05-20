@@ -3,13 +3,13 @@
 
 ### 安装顺序
 - We recommend that you install the Elastic Stack in the following order.
-- Elasticsearch
-- X-Pack for Elasticsearch
-- Kibana
-- X-Pack for Kibana
-- Logstash
-- Beats
-- Elasticsearch Hadoop
+- 1.Elasticsearch
+- 2.X-Pack for Elasticsearch
+- 3.Kibana
+- 4.X-Pack for Kibana
+- 5.Logstash
+- 6.Beats
+- 7.Elasticsearch Hadoop
 - This helps to ensure that the right parts of your infrastructure are running before other parts attempt to use them (e.g., Logstash sending data to Elasticsearch).
 
 ### 安装 JDK(1.8)
@@ -39,11 +39,13 @@
   export JAVA_HOME=/usr/local/jdk1.8
   export PATH=$PATH:$JAVA_HOME/bin
   ```
+  
   ```bash
   source /etc/profile
   ```
 
 - 验证：
+  
   ```bash
   [root@test-node5 local]# java -version
   openjdk version "1.8.0_141"
@@ -57,16 +59,19 @@
 
 #### Import the Elasticsearch PGP Key
 - 导入 key：
+  
   ```bash
   rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
   ```
 
 #### Create the repo file
 - Create a file called elasticsearch.repo in the `/etc/yum.repos.d/` directory for RedHat based distributions
+  
   ```bash
   vim /etc/yum.repos.d/elasticsearch.repo
   ```
 - 将以下内容写到此文件中
+  
   ```bash
   [elasticsearch-5.x]
   name=Elasticsearch repository for 5.x packages
@@ -80,12 +85,14 @@
 
 #### Install
 - 安装：
+  
   ```bash
   yum -y install elasticsearch
   ```
 
 #### start/stop elasticsearch service
 - 启动/停止相关服务：
+  
   ```bash
   systemctl start/stop elasticsearch
   ```
@@ -99,6 +106,7 @@
 
 - You can test that your Elasticsearch node is running by sending an HTTP request to port 9200 on localhost:
 - 访问输出内容如下：
+  
   ```json
   {
     "name" : "Cp8oag6",
@@ -121,16 +129,19 @@
 
 #### Import the Elastic PGP Key
 - 导入相关 key:
+  
   ```bash
   rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
   ```
 
 #### Create the repo file
 - Create a file called kibana.repo in the `/etc/yum.repos.d/` directory for RedHat based distributions
+  
   ```bash
   vim /etc/yum.repos.d/kibana.repo
   ```
 - 将以下内容写到此文件中
+  
   ```bash
   [kibana-5.x]
   name=Kibana repository for 5.x packages
@@ -145,18 +156,21 @@
 
 #### Install
 - 安装：
+  
   ```bash
   yum -y install kibana
   ```
 
 #### start/stop kibana service
 - 启动/停止相关服务：
+  
   ```bash
   systemctl start/stop kibana
   ```
 
 #### 查看 kibana 版本
 - 查看 kibana 版本信息：
+  
   ```bash
   /usr/share/kibana/bin/kibana -V
   ```
@@ -168,16 +182,19 @@
 
 #### Import the Elastic PGP Key
 - 导入相关 key:
+  
   ```bash
   rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
   ```
 
 #### Create the repo file
 - Create a file called logstash.repo in the `/etc/yum.repos.d/` directory for RedHat based distributions
+  
   ```bash
   vim /etc/yum.repos.d/logstash.repo
   ```
 - 将以下内容写到此文件中
+  
   ```bash
   [logstash-5.x]
   name=Elastic repository for 5.x packages
@@ -192,18 +209,21 @@
 
 #### Install
 - 安装：
+  
   ```bash
   yum install logstash
   ```
 
 #### start/stop logstash service
 - 启动/停止相关服务：
+  
   ```bash
   systemctl start/stop logstash
   ```
 
 #### 查看 Logstash 版本
 - 查看 Logstash 版本相关版本：
+  
   ```bash
   /usr/share/logstash/bin/logstash -V
   ```
