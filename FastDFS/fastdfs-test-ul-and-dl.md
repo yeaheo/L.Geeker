@@ -10,6 +10,7 @@
 
 #### 编辑 client.conf 文件
 - 编辑 client.conf 文件, 修改如下配置：
+  
   ```bash
   cd /etc/fdfs
   cp client.conf.sample client.confvim client.conf
@@ -19,6 +20,7 @@
 
 #### 上传命令
 - 上传文件测试：
+  
   ```bash
   /usr/bin/fdfs_test /etc/fdfs/client.conf upload /usr/bin/test.txt
   ```
