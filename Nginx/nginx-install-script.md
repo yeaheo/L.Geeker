@@ -1,5 +1,6 @@
 ## Nginx安装脚本
-``` xml
+
+```bash
 #!/bin/bash
 # Description: the script install nginx
 # Date: 2017-06-27

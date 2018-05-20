@@ -1,10 +1,13 @@
 ## Nginx反向代理时的超时问题
-- 本文接上一篇文档[描述](Nginx-反向代理时的超时问题(描述).md)
+
+- 本文接上一篇文档 [反向代理时的超时问题](nginx-timeout-issues-with-reverse-proxy.md)
+
 ### websocket 1分钟会自动断开问题
-- location 中的proxy_read_timeout 默认60s断开，可以把他设置大一点,或者配置在server或者http段内均可。
+- location 中的 `proxy_read_timeout` 默认 60s 断开，可以把他设置大一点,或者配置在 server 或者 http 段内均可。
 - 例如：
-- location段
-  ``` conf
+- **location 段**
+  
+  ```bash
   location / {
       add_header X-Frame-Options SAMEORIGIN;
       add_header X-Content-Type-Options nosniff;
@@ -19,8 +22,10 @@
       proxy_pass http://127.0.0.1:8080;
       }
   ```
-- server段
-  ``` conf
+
+- **server 段**
+  
+  ```bash
   ....
   server {
         listen       80;
@@ -33,8 +38,10 @@
         ....
    }
    ```
-- http段
-  ``` conf
+
+- **http**段
+  
+  ```bash
   http {
   .....
   proxy_connect_timeout 60s; ▲
@@ -43,5 +50,9 @@
   ....
   }
   ```
-- 修改完毕，重启nginx即可。
+- 修改完毕，重启 nginx 即可：
+  
+  ```bash
+  nginx -s stop
+  ```
   

@@ -12,6 +12,7 @@
   # 默认为 on，以 bytes 为单位显示文件大小
   # 切换为 off 后，以可读的方式显示文件大小，单位为 KB、MB 或者 GB
   ```
+  
   ```bash
   autoindex_localtime on;
   # 默认为 off，以 GMT 时间作为显示的文件时间

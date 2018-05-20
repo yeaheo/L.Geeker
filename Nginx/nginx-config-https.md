@@ -23,6 +23,7 @@
   ```
 
 - 在加载 SSL 支持的 Nginx 并使用上述私钥时除去必须的口令：
+  
   ```bash
   cp server.key server.key.org
   openssl rsa -in server.key.org -out server.key
