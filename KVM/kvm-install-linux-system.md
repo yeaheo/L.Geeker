@@ -33,5 +33,5 @@
 
   --os-type=linux,windows
   --os-variant=
-```
+  ```
 - 为了可以连接创建的虚拟机，建议安装VNC。
