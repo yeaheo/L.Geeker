@@ -130,6 +130,7 @@
   </domain>
   ```
 - 虚拟机磁盘文件如下：
+  
   ```bash
   /home/kvm/kvm-img/yeah-k8s-master.img
   ```
@@ -140,20 +141,16 @@
   virt-clone -o k8s-master -n k8s-master-bak -f /home/kvm/kvm-img/yeah-k8s-master-bak.img
   
   参数说明：
-  -o ORIGINAL_GUEST, --original ORIGINAL_GUEST
-                        原始客户机名称；必须为关闭或者暂停状
-                        态。
-  -n NEW_NAME, --name NEW_NAME
-                        新客户机的名称
-  -f NEW_DISKFILE, --file NEW_DISKFILE
-                        为新客户机使用新的磁盘镜像文件
-  
-  需要注意的是：必须暂停或者关闭有要克隆设备的域，否则会提示报错。
+  -o ORIGINAL_GUEST, --original ORIGINAL_GUEST   # 原始客户机名称；必须为关闭或者暂停状态。
+  -n NEW_NAME, --name NEW_NAME                   # 新客户机的名称
+  -f NEW_DISKFILE, --file NEW_DISKFILE           # 为新客户机使用新的磁盘镜像文件
   ```
+  > 需要注意的是：必须暂停或者关闭有要克隆设备的域，否则会提示报错。
 - 克隆完虚拟机后还需要对其做些配置，例如主机名、IP地址等，以免和源主机相同。
 
 ### 异机虚拟机克隆
 - 环境如下：
+  
   ```bash
   root@yeaheo:~# virsh list --all
   Id    名称                         状态
