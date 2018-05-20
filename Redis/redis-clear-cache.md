@@ -4,17 +4,20 @@
 - **清理缓存**
 
 - 清理当前所在数据库缓存
-  ``` bash
+  
+  ```bash
   > flashdb
   ```
   
 - 清理 redis 全部缓存
-  ``` bash
+  
+  ```bash
   > flashall
   ```
 
 - 清理指定 `key` 值
-  ``` bash
+  
+  ```bash
   > key *    # 查看所有key
   > del key <指定 key 值>
   ```

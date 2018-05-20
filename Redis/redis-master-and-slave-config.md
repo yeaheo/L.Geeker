@@ -3,17 +3,20 @@
 - 配置 redis 主从同步需要我们首先安装 redis ，具体安装过程参见 [redis 部署](./redis-installation-gide.md) 
 
 - **redis 集群环境如下：**
-  ``` bash
+  
+  ```bash
   master 172.16.6.94
   slave  172.16.6.93
   ```
 ### 配置 master 节点
 - 修改 redis 配置文件 `redis.conf`
 - `redis.conf` 默认路径：`/usr/local/redis/redis.conf`
+  
   > 我的 redis 安装目录为 `/usr/local/redis`
 
 - 修改 redis 配置文件以下几个参数：
-  ``` bash
+  
+  ```bash
   bind 0.0.0.0
   .....
   port 33679
@@ -33,7 +36,8 @@
   > 我的 redis 安装目录为 `/usr/local/redis`
 
 - 修改 redis 配置文件以下几个参数：
-  ``` bash
+  
+  ```bash
   bind 0.0.0.0
   .....
   port 33679
@@ -52,7 +56,8 @@
 
 ### 分别启动两个主机的 redis 服务
 - 配置完成后，我们需要启动相关服务：
-  ``` bash
+  
+  ```bash
   172.16.6.94:
   $ redis-server /usr/local/redis/redis.conf
   172.16.6.93:
@@ -61,7 +66,8 @@
 
 ### 验证 redis 主从
 - redis 服务启动之后，我们需要登录到 master 节点的 redis 中查看相关配置：
-  ``` bash
+  
+  ```bash
   [root@ctg-fls-web2 ~]# redis-cli -h 172.16.6.94 -p 33679
   172.16.6.94:33679> AUTH CTg-Fls{2018helleo.cn&-93
   OK

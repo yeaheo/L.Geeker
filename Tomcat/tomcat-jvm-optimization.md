@@ -1,7 +1,7 @@
-# Tomcat 8 安装和配置、优化
+## Tomcat 8 安装和配置、优化
 
 
-## Tomcat 8 安装
+### Tomcat 8 安装
 
 - Tomcat 8 安装
     - 官网：<http://tomcat.apache.org/>
@@ -29,7 +29,7 @@
         - 修改配置文件：`vim /etc/hosts`，把第一行的 127.0.0.1 这一行删掉，然后再最后一行增加这句：`127.0.0.1 localhost youmeek`，这里最后的 youmeek 就是主机名
         - 然后重启计算机：`reboot`
 
-## Tomcat 8 配置
+### Tomcat 8 配置
 
 - 设置 Tomcat 相关变量：
     - `sudo vim /usr/program/tomcat8/bin/catalina.sh`
@@ -45,7 +45,7 @@
     - 改为：`exec "$PRGDIR"/"$EXECUTABLE" stop 10 -force`
     
     
-## Tomcat 8 优化
+###Tomcat 8 优化
 
 - Tomcat 6/7/8 的优化参数有点不一样，最好按下面的方式看一下官网这个文档是否还保留着这个参数
 - 启动tomcat，访问该地址，下面要讲解的一些配置信息，在该文档下都有说明的：

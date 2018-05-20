@@ -1,7 +1,8 @@
 ## Tomcat-自定义过滤器
-- 有时我们扫描漏洞时提示我们缺少X-Frame-Options头，在tomcat中配置如下：
-- 修改web.xml文件，添加如下内容，重启tomcat即可：
-  ``` xml
+- 有时我们扫描漏洞时提示我们缺少 `X-Frame-Options`头，在 tomcat 中配置如下：
+- 修改 `web.xml`文件，添加如下内容，重启 tomcat 即可：
+
+  ```xml
   <filter>
         <filter-name>httpHeaderSecurity</filter-name>
         <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
