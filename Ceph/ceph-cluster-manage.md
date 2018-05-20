@@ -6,7 +6,7 @@
 - 一个基本的集群启动并开始运行后，下一步就是扩展集群。
 
 #### 添加 OSD
-- 准备相关目录
+- **准备相关目录**
   
   ``` bash
   ssh node1
@@ -76,7 +76,7 @@
   ``` bash
   ceph quorum_status --format json-pretty
   ```
-  
+
   
  
 
