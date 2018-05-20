@@ -4,7 +4,7 @@
 ### 查看指定删除日志
 - 查看 MySQL 数据库的二进制日志及占用空间
   
-  ``` bash
+  ```bash
   mysql> show binary logs;
   +------------------+------------+
   | Log_name         | File_size  |
@@ -18,7 +18,7 @@
 
 - 清理相关日志
   
-  ``` bash
+  ```bash
   mysql> purge master logs to 'mysql-bin.000054';   ## 删除二进制日志mysql-bin.000054以前的所有binlog，这样删除可以保证*.index信息与binlog文件同步
   Query OK, 0 rows affected (2.46 sec)
   ```
@@ -26,14 +26,14 @@
 ### 手动清理日志
 - 手动清理指定日期的 binlog 文件
   
-  ``` bash
+  ```bash
   PURGE MASTER LOGS BEFORE DATE_SUB(CURRENT_DATE, INTERVAL 5 DAY);
   ## 手动清理5天前的 binlog
   ```
 
 ### 设置自动清理
 - 利用命令行清理：
-  ``` bash
+  ```bash
   mysql> set global expire_logs_days = 5;
   mysql> flush logs;
   ```
@@ -41,7 +41,7 @@
 - 配置完成后需要刷新一下日志，否则不生效
 
 - 为保证在 MySQL 服务重启后仍然有效，需要修改配置文件，在 `[mysqld]` 段中添加如下内容：
-  ``` bash
+  ```bash
   expire_logs_days = 5
   ```
 
@@ -49,7 +49,7 @@
 - 有时候我们不需要登陆MySQL数据库来执行命令，可以直接在命令行执行即可，但这样MySQL的相关账号信息或暴露，不安全
 - 示例：
  
-  ``` bash
+  ```bash
   mysql -uroot -pctsig126 -e "show global variables like '%expire_logs_days%';"
   ```
 

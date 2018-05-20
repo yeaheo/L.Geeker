@@ -1,5 +1,5 @@
 ### Haproxy配置文件模板
-``` xml
+```bash
   global                              
       log 127.0.0.1 local3 info         #在本机记录日志
       maxconn 65535                     #每个进程可用的最大连接数

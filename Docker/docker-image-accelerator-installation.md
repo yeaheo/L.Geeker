@@ -14,7 +14,8 @@
 
 - **配置镜像加速器**
 - 修改daemon配置文件 `/etc/docker/daemon.json` 来使用加速器：
-  ``` bash
+  
+  ```bash
   sudo mkdir -p /etc/docker
   sudo tee /etc/docker/daemon.json <<-'EOF'
   {
@@ -28,14 +29,14 @@
 ### 配置官方中国镜像加速器
 - 编辑 `/etc/docker/daemon.json` 文件，添加如下内容：
  
-  ``` json
+  ```json
   {
   "registry-mirrors": ["https://registry.docker-cn.com"]
   }
   ```
 - 添加后保存退出，重启 docker 服务：
 
-  ``` bash
+  ```bash
   sudo systemctl daemon-reload
   sudo systemctl restart docker
   ```
@@ -44,7 +45,7 @@
 ### 检查加速器是否生效
 - 配置加速器之后，在命令行执行 `docker info`，如果从结果中看到了如下内容，说明配置成功。
  
-  ``` bash
+  ```bash
   Registry Mirrors:
   https://registry.docker-cn.com/
   ```

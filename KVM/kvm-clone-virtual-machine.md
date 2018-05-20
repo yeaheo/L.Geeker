@@ -10,7 +10,8 @@
 ### 本机虚拟机克隆
 - 环境为我的实验环境，具体问题还需按照实际情况进行操作。
 - 首先，我们需要克隆的虚拟机如下：
-  ``` bash
+  
+  ```bash
   root@yeaheo:/# virsh list --all
   Id    名称                         状态
   ----------------------------------------------------
@@ -20,7 +21,8 @@
   8     k8s-node2                      running
   ```
 - 需要克隆的虚拟机配置文件如下：
-  ``` xml
+  
+  ```bash
   root@yeaheo:/# cat /etc/libvirt/qemu/k8s-master.xml 
   <!--
   WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
@@ -128,14 +130,14 @@
   </domain>
   ```
 - 虚拟机磁盘文件如下：
-  ``` bash
+  ```bash
   /home/kvm/kvm-img/yeah-k8s-master.img
   ```
 - 克隆上述虚拟机(用virt-clone命令)
 - **virt-clone**命令详细参数参见 `virt-clone --help`
   
-  ``` bash
-  # virt-clone -o k8s-master -n k8s-master-bak -f /home/kvm/kvm-img/yeah-k8s-master-bak.img
+  ```bash
+  virt-clone -o k8s-master -n k8s-master-bak -f /home/kvm/kvm-img/yeah-k8s-master-bak.img
   
   参数说明：
   -o ORIGINAL_GUEST, --original ORIGINAL_GUEST
@@ -152,7 +154,7 @@
 
 ### 异机虚拟机克隆
 - 环境如下：
-  ``` bash
+  ```bash
   root@yeaheo:~# virsh list --all
   Id    名称                         状态
   ----------------------------------------------------
@@ -163,15 +165,18 @@
   ```
 - 因为是异机克隆，本次在本机上模拟异机，原理相同。
 - 准备新虚拟机配置文件
-  ``` bash
-  # virsh dumpxml k8s-master > /opt/k8s-master.xml
+  
+  ```bash
+  virsh dumpxml k8s-master > /opt/k8s-master.xml
   ```
 - 复制需要克隆的虚拟机磁盘文件
-  ``` bash
-  # cp yeah-k8s-master.img /opt/yeah-k8s-master-clone.img
+  
+  ```bash
+  cp yeah-k8s-master.img /opt/yeah-k8s-master-clone.img
   ```
 - 修改新虚拟机配置文件以下内容为新虚拟机的实际参数
-  ``` xml
+  
+  ```bash
   ......
   <name>k8s-master-clone</name>
   <uuid>763dd3b3-df8d-40a4-bdc8-63f0aa6e3b54</uuid>
@@ -182,12 +187,14 @@
   ......
   ```
 - 定义新虚拟机配置文件
-  ``` bash
-  # virsh define /opt/k8s-master.xml
+  
+  ```bash
+  virsh define /opt/k8s-master.xml
   ```
 - 开启虚拟机
-  ``` bash
-  # virsh start k8s-master-clone
+  
+  ```bash
+  virsh start k8s-master-clone
   ```
 - 克隆完虚拟机后还需要对其做些配置，例如主机名、IP地址等，以免和源主机相同。
 

@@ -9,11 +9,15 @@
 - 创建上述文件添加如下内容：
 - `vim /etc/docker/daemon.json`
 
-  ``` json
+  ```json
   {
       "live-restore": true
   }
   ```
 - 修改完成，重启docker使其生效即可
-- `systemctl restart docker.service`
+
+  ```bash
+  systemctl restart docker.service
+  ```
+
 

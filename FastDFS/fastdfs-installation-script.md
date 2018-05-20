@@ -1,5 +1,5 @@
 ## FastDFS安装脚本
-``` bash
+```bash
 #!/bin/bash
 # Description: the script to install fastdfs
 # Date: 2017-07-24

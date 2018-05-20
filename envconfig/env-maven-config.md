@@ -6,14 +6,14 @@
 ### 下载并配置 maven 软件包
 - 我们把 maven 软件包解压到 `/usr/local` 目录下：
 
-  ``` bash
-  # wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz
-  # tar zxvf apache-maven-3.5.3-bin.tar.gz -C /usr/local
+  ```bash
+  wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz
+  tar zxvf apache-maven-3.5.3-bin.tar.gz -C /usr/local
   ```
 ### 配置相关环境变量
--
-  ``` bash
-  # vim /etc/profile
+- 配置环境变量：
+  ```bash
+  vim /etc/profile
   
   添加如下内容：
   
@@ -21,12 +21,13 @@
   export PATH=$PATH:$MAVEN_HOME/bin
   ```
 - 使设置的环境变量生效：
-  ``` bash
-  # source /etc/profile
+  
+  ```bash
+  source /etc/profile
   ```
 ### 验证
-- 
-  ``` bash
+- 验证相关环境是否生效：
+  ```bash
   [root@CTSIG-ST ~]# mvn -version
   Apache Maven 3.5.3 (3383c37e1f9e9b3bc3df5050c29c8aff9f295297; 2018-02-25T03:49:05+08:00)
   Maven home: /usr/local/maven

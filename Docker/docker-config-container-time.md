@@ -3,12 +3,14 @@
 - 在Docker容器创建好之后，可能会发现容器时间跟宿主机时间不一致，这就需要同步它们的时间，让容器时间跟宿主机时间保持一致。
 
 - 宿主机时间：
-  ``` xml
+  
+  ```bash
   [root@ceph-node1 ~]# date
   2017年 07月 30日 星期日 13:46:52 CST
   ```
 - 容器时间：
-  ``` xml
+  
+  ```bash
   [root@ceph-node1 ~]# docker run -i -t centos:latest /bin/bash
   [root@0ce1de90e209 /]# date
   Sun Jul 30 05:47:14 UTC 2017
@@ -23,7 +25,7 @@
 - 创建容器的时候指定启动参数，挂载localtime文件到容器内，保证两者所采用的时区是一致的。
 - 示例如下：
   
-  ``` xml
+  ```bash
   [root@ceph-node1 ~]# docker run -i -t --name my-httpd -v /etc/localtime:/etc/localtime:ro centos:httpd /bin/bash
   [root@be91e9bd5d95 /]# date
   Sun Jul 30 14:01:53 CST 2017
@@ -32,14 +34,14 @@
 - 示例如下：
   - 修改前
   
-  ``` xml
+  ```bash
   [root@ceph-node1 ~]# docker run -i -t centos:latest /bin/bash
   [root@0ce1de90e209 /]# date
   Sun Jul 30 05:47:14 UTC 2017
   ```
   - 修改后
   
-  ``` xml
+  ```bash
   [root@ceph-node1 ~]# docker cp /etc/localtime 9ec4c03133dd:/etc
   [root@ceph-node1 ~]# docker start 9ec4c03133dd
   9ec4c03133dd
@@ -51,14 +53,14 @@
 #### 方法3：创建dockerfile文件的时候，自定义该镜像的时间格式及时区。在dockerfile文件里添加下面内容：
 - 示例dockerfile文件如下：
   
-  ``` xml
+  ```bash
   ......
   #设置时区
   RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
   ......
   ```
   
-  ``` xml
+  ```bash
   [root@ceph-node1 centos]# docker build -t centos:zone .
   [root@ceph-node1 centos]# docker run -i -t centos:zone /bin/bash
   [root@5d143e9813f7 /]# date
