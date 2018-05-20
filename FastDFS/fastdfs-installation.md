@@ -96,4 +96,4 @@
   ```bash
   /usr/bin/fdfs_monitor /etc/fdfs/storage.conf
   ```
-- 显示ACTIVE表示没问题
+- 显示 ACTIVE 表示没问题
