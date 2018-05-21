@@ -79,5 +79,5 @@
   systemctl restart nginx.service  或 nginx -s reload
   systemctl enable nginx.service
   ```
-- nginx 配置文件位置 `/etc/nginx/`
+  > nginx 配置文件位置 `/etc/nginx/`
 
