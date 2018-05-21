@@ -8,6 +8,7 @@
 - 需要 Gamin 支持(注：Gamin是用于监视文件和目录是否更改的服务工具);
 - 需要安装 python, iptables, tcp-wrapper, shorewall, Gamin。如果想要发邮件，那必需安装 postfix 或 sendmail;
 
+
 - Fail2ban 官网地址：<http://www.fail2ban.org>
 - Fail2ban 下载地址：<http://www.fail2ban.org/wiki/index.php/Downloads>
 
