@@ -8,7 +8,7 @@
 
 - 两台机器上分别安装 Nginx 和 Keepalived
 
-### 安装Nginx请参见: [Nginx安装教程](nginx-installation-and-config.md)
+- 安装Nginx请参见: [Nginx安装教程](nginx-installation-and-config.md)
 - 具体 Nginx 编译参数如下：
 
 - `--with-http_stub_status_module`     ：（enable ngx_http_stub_status_module）支持Nginx状态查询
