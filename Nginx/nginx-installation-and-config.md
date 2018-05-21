@@ -1,4 +1,4 @@
-## Nginx 的安装
+## Nginx 安装
 - Nginx 官网：<http://nginx.org>
 - Nginx 官方库：<http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm>
 
