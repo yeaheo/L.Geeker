@@ -4,21 +4,21 @@
 
 ### Nginx常用的超时配置说明
 
-- **`client_header_timeout`**
+#### **`client_header_timeout`**
 - 语法：client_header_timeout time
 - 默认值 60s
 - 上下文 http server
 - 说明 指定等待client发送一个请求头的超时时间（例如：GET / HTTP/1.1）.仅当在一次 read 中，没有收到请求头，才会算成超时。如果在超时时间内，client  没发送任何东西，nginx 返回 HTTP 状态码 408(“Request timed out”)
 
 
-- **`client_body_timeout`**
+#### **`client_body_timeout`**
 - 语法 client_body_timeout time
 - 默认值 60s
 - 上下文 http server location
 - 说明 该指令设置请求体（request body）的读超时时间。仅当在一次readstep中，没有得到请求体，就会设为超时。超时后，nginx返回HTTP状态码408(“Request timed out”)
 
 
-- **`keepalive_timeout`**
+#### **`keepalive_timeout`**
 - 语法 keepalive_timeout timeout [ header_timeout ]
 - 默认值 75s
 - 上下文 http server location
@@ -32,21 +32,21 @@
 - Konqueror 保持长连接N秒
 
 
-- **`lingering_timeout`**
+#### **`lingering_timeout`**
 - 语法 lingering_timeout time
 - 默认值 5s
 - 上下文 http server location
 - 说明 lingering_close 生效后，在关闭连接前，会检测是否有用户发送的数据到达服务器，如果超过 lingering_timeout 时间后还没有数据可读，就直接关闭连接；否则，必须在读取完连接缓冲区上的数据并丢弃掉后才会关闭连接。
 
 
-- **`resolver_timeout`**
+#### **`resolver_timeout`**
 - 语法 resolver_timeout time 
 - 默认值 30s
 - 上下文 http server location
 - 说明 该指令设置DNS解析超时时间
 
 
-- **`proxy_connect_timeout`**
+#### **`proxy_connect_timeout`**
 - 语法 proxy_connect_timeout time 
 - 默认值 60s
 - 上下文 http server location
@@ -54,21 +54,21 @@
 - 这个不是等待后端返回页面的时间，那是由 proxy_read_timeout 声明的。如果你的 upstream 服务器起来了，但是 hanging 住了（例如，没有足够的线程处理请求，所以把你的请求放到请求池里稍后处理），那么这个声明是没有用的，由于与 upstream 服务器的连接已经建立了。
 
 
-- **`proxy_read_timeout`**
+#### **`proxy_read_timeout`**
 - 语法 proxy_read_timeout time
 - 默认值 60s
 - 上下文 http server location
 - 说明 该指令设置与代理服务器的读超时时间。它决定了 nginx 会等待多长时间来获得请求的响应。这个时间不是获得整个 response 的时间，而是两次 reading 操作的时间。
 
 
-- **`proxy_send_timeout`**
+#### **`proxy_send_timeout`**
 - 语法 proxy_send_timeout time 
 - 默认值 60s
 - 上下文 http server location
 - 说明 这个指定设置了发送请求给 upstream 服务器的超时时间。超时设置不是为了整个发送期间，而是在两次 write 操作期间。如果超时后，upstream 没有收到新的数据，nginx 会关闭连接
 
 
-- **`proxy_upstream_fail_timeout（fail_timeout）`**
+#### **`proxy_upstream_fail_timeout（fail_timeout）`**
 - 语法 server address [fail_timeout=30s]
 - 默认值 10s
 - 上下文 upstream
