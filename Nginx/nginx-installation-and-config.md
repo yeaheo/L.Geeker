@@ -75,9 +75,9 @@
   
   ```bash
   systemctl start nginx.service    或 nginx
-  systemctl stop nginx.service     或 nginx -s stop
+  systemctl stop nginx.service     或 nginx -s stop
   systemctl restart nginx.service  或 nginx -s reload
-  systemctl enable nginx.service
+  systemctl enable nginx.service
   ```
   > nginx 配置文件位置 `/etc/nginx/`
 
