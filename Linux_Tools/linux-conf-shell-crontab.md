@@ -9,9 +9,9 @@
   
   ```bash
   [root@www ~]# crontab -e
-  #然后输入以下内容：
+  #然后输入以下内容：
   1 2 * * *  echo "Hello World"
-  #保存退出即可
+  #保存退出即可
   ```
 - 查看 root 用户的计划任务
   
