@@ -1,11 +1,13 @@
 ## 利用 fail2ban 配置防暴力破解
 - fail2ban 是一款实用软件，可以监视你的系统日志，然后匹配日志的错误信息（正则式匹配）执行相应的屏蔽动作。
-- Fail2ban 功能特性：
-  - 支持大量服务。如 sshd, apache, qmail, proftpd, sasl等等;
-  - 支持多种动作。如 iptables, tcp-wrapper, shorewall(iptables第三方工具), mail  notifications(邮件通知)等等;
-  - 在 logpath 选项中支持通配符;
-  - 需要 Gamin 支持(注：Gamin是用于监视文件和目录是否更改的服务工具);
-  - 需要安装 python, iptables, tcp-wrapper, shorewall, Gamin。如果想要发邮件，那必需安装 postfix 或 sendmail;
+
+- **Fail2ban 功能特性**：
+- 支持大量服务。如 sshd, apache, qmail, proftpd, sasl等等;
+- 支持多种动作。如 iptables, tcp-wrapper, shorewall(iptables第三方工具), mail  notifications(邮件通知)等等;
+- 在 logpath 选项中支持通配符;
+- 需要 Gamin 支持(注：Gamin是用于监视文件和目录是否更改的服务工具);
+- 需要安装 python, iptables, tcp-wrapper, shorewall, Gamin。如果想要发邮件，那必需安装 postfix 或 sendmail;
+
 - Fail2ban 官网地址：<http://www.fail2ban.org>
 - Fail2ban 下载地址：<http://www.fail2ban.org/wiki/index.php/Downloads>
 
