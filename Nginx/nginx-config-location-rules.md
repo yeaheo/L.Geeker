@@ -1,4 +1,4 @@
-# Nginx-location 配置规则
+## Nginx-location 配置规则
 - Nginx 几乎是当下绝大多数公司在用的 web 应用服务，熟悉 Nginx 的配置，对于我们日常的运维工作是至关重要的，下面就 Nginx 的 location 配置进行梳理：
 
 ### location 匹配的是变量
