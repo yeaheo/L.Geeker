@@ -58,7 +58,7 @@
   nginx -s stop   #停止Nginx服务
   nginx -s reload #重新加载Nginx服务，使配置文件生效
   ```
- > 为了安装方便我写了个安装脚本做参考 [nginx-install-script](https://github.com/yeaheo/hello.linux/blob/master/Shell/nginx_install.sh)
+  > 为了安装方便我写了个安装脚本做参考 [nginx-install-script](https://github.com/yeaheo/hello.linux/blob/master/Shell/nginx_install.sh)
 
 ### 用 yum 的方式安装 nginx
 - 安装nginx库文件
