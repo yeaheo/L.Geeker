@@ -5,10 +5,10 @@
 # Email: youger.lv@gmail.com
 # Date: Tue Oct 10 17:16:16 HKT 2017
 
-PURL="http://report.ctsig.com/wwx/send/news"
+PURL="http://XX"
 function body() {
-    local int AppID=1000010
-    local UserID="lvxiaoteng"
+    local int AppID=XX
+    local UserID="XX"
     local Msg=$(echo "$@" | cut -d" " -f3-)
     printf '{\n'
     printf '\t"appId": '"$AppID"",\n"
