@@ -37,7 +37,7 @@
   anonymous_enable=NO
   ...
   ```
-#### 配置本地用户登录
+#### 本地用户登录
 - 本地用户登录需要该用户在系统内真实存在。
 - 新建用户：
 
@@ -76,5 +76,5 @@
 
   > 推荐一款 FTP 专用客户端软件：FileZilla 。下载地址：<https://download.filezilla-project.org/client/FileZilla_3.33.0_win64-setup_bundled.exe>
   
-#### 配置虚拟用户登录
+#### 虚拟用户登录
 - 后续更新...
