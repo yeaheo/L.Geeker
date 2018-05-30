@@ -1,4 +1,4 @@
-## CentOS7 安装 FTP 服务
+## CentOS 7 安装 FTP 服务
 - FTP 是 File Transfer Protocol (文件传输协议)。顾名思义，就是专门用来传输文件的协议。简单地说，支持 FTP 协议的服务器就是 FTP 服务器。
 - CentOS 7 系统的 FTP 服务软件是 vsftpd ，FTP 服务的默认监听的端口是 TCP 的 21 端口，它其实也是一种 C/S 架构，分为服务端和客户端。
 
@@ -77,4 +77,4 @@
   > 推荐一款 FTP 专用客户端软件：FileZilla 。下载地址：<https://download.filezilla-project.org/client/FileZilla_3.33.0_win64-setup_bundled.exe>
   
 #### 虚拟用户登录
-- 后续更新...
+- 时间问题，后续更新...
