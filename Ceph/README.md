@@ -1,3 +1,1 @@
 ![yeaheo](../cover-img/yeaheo_b.jpg)
-- **世界上没有什么捷径可言，最好的捷径就是自己一点一点的积累、一点一点的努力！**
-- **个人邮箱地址: <helleo.cn@gmail.com>**
