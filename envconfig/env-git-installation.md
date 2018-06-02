@@ -44,7 +44,35 @@
   ```bash
   source /etc/profile
   ```
+- 安装完成验证 git ：
 
+  ```bash
+  [root@ns1 ~]# git --version 
+  git version 2.13.6
+  ```
 
+### 配置 git 客户端自动补全
+- 当我们在 Linux 系统上安装 git 后，默认是不能自动补全的，需要我们配置一下：
+
+  ```bash
+  cd /usr/src/git-2.13.6
+  cp contrib/completion/git-completion.bash /etc/bash_completion.d/
+  bash /etc/bash_completion.d/git-completion.bash
+  ```
+
+- 编辑 `/etc/profile` 文件，加入如下内容：
+
+  ```bash
+  # Git bash autoload
+  if [ -f /etc/bash_completion.d/git-completion.bash ]; then
+  . /etc/bash_completion.d/git-completion.bash
+  fi
+  ```
+- 执行 `/etc/profile` 文件使配置生效：
+
+  ```bash
+  source /etc/profile
+  ```
+- 再次验证即可发现 git 客户端可以自动补全了。
   
   
