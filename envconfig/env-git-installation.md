@@ -29,4 +29,8 @@
   ```bash
   tar xf /opt/soft/git-2.13.6.tar.gz -C /usr/src
   cd /usr/src/git-2.13.6
+  make prefix=/usr/local/git all   # prefix 参数用于指定 git 安装目录
+  make prefix=/usr/local/git install
+  ```
+- 
   
