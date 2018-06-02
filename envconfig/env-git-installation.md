@@ -32,5 +32,19 @@
   make prefix=/usr/local/git all   # prefix 参数用于指定 git 安装目录
   make prefix=/usr/local/git install
   ```
-- 
+- 设置相关环境变量：
+- 修改 `/etc/profile` 文件，增加如下内容：
+
+  ```bash
+  export GIT_HOME=/usr/local/git
+  export PATH=$PATH:$GIT_HOME/bin
+  ```
+- 执行 `/etc/profile` 文件使配置生效：
+
+  ```bash
+  source /etc/profile
+  ```
+
+
+  
   
