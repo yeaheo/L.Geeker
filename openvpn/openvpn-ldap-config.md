@@ -44,11 +44,13 @@
   > LDAP 的配置文件必须按照现有 LDAP 配置信息进行配置，否则会验证失败，因为涉及公司隐私，上述内容只是 demo。
 
 
-- 编辑 openvpn 的配置文件 `/etc/openvpn/server.conf` ：
+- 编辑 openvpn 的配置文件 `/etc/openvpn/server.conf` ，增加如下内容：
 
   ```bash
+  ...
   plugin /usr/lib64/openvpn/plugin/lib/openvpn-auth-ldap.so "/ldap.conf cn=%u" 
-  client-cert-not-required 
+  client-cert-not-required
+  ... 
   ```
 
   > 使用了上面安装的 openvpn-auth-ldap 认证插件，client-cert-not-required 表示不再需要客户端证书，将改为使用 LDAP 中的用户认证。
