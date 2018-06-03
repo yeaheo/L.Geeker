@@ -7,6 +7,7 @@
 ### 安装 OpenVPN
 
 #### 安装环境及版本信息：
+- 安装环境：
 
   ```bash
   # cat /etc/redhat-release 
