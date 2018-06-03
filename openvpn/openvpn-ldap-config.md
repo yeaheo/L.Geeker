@@ -86,7 +86,7 @@
   cipher AES-256-CBC
   
   ns-cert-type server   # 增加此行
-  auth-user-pass        # 开启 用户名密/码 认证
+  auth-user-pass        # 增加此行开启 "用户名/密码" 认证
   
   comp-lzo
   verb 3
