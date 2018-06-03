@@ -307,6 +307,9 @@
 
 - 至此，OpenVPN 服务端安装并配置完成，下一步就是用客户端进行连接测试了，具体测试过程参见 [OpenVPN 连接测试](./openvpn-client-test.md)
 
+- **参考文档：**
+
+- <https://openvpn.net/index.php/open-source/documentation/install.html>
 
 
 
