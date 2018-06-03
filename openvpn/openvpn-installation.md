@@ -175,3 +175,138 @@
 
 ### 配置 OpenVPN 服务端
 - 创建配置文件目录和证书目录：
+
+  ```bash
+  mkdir -p /etc/openvpn        # openvpn 配置文件路径
+  mkdir -p /etc/openvpn/pki    # openvpn 证书存放位置
+  ```
+
+- 生成 tls-auth key 并将其拷贝到证书目录中：
+
+  ```bash
+  /us/local/openvpn/sbin/openvpn --genkey --secret ta.key
+  mv ./ta.key /etc/openvpn/pki
+  ```
+
+- 将签名生成的 CA 证书秘钥和服务端证书秘钥拷贝到证书目录中：
+
+  ```bash
+  cp /usr/local/easy-rsa-old-master/easy-rsa/2.0/{keysca.key,ca.crt,server.crt,server.key,dh2048.pem} /etc/openvpn/pki/
+
+  ls /etc/openvpn/pki/
+  ca.crt  ca.key  dh2048.pem  server.crt  server.key  ta.key
+  ```
+
+- 将 OpenVPN 源码下的配置文件 `sample/sample-config-files/server.conf` 拷贝到 `/etc/openvpn` 目录：
+
+  ```bash
+  cp /usr/src/openvpn-2.4.4/sample/sample-config-files/server.conf /etc/openvpn/
+  ```
+
+- 编辑服务端配置文件 `/etc/openvpn/server.conf`：
+
+  ```conf
+  
+  port 1194
+  proto tcp
+  dev tun
+  
+  ca /etc/openvpn/pki/ca.crt
+  cert /etc/openvpn/pki/server.crt
+  key /etc/openvpn/pki/server.key  # This file should be kept secret
+  dh /etc/openvpn/pki/dh2048.pem
+  
+  server 10.8.0.0 255.255.255.0    # 分配给客户端的虚拟局域网段
+  
+  ifconfig-pool-persist ipp.txt
+  
+  push "route 10.0.0.0 255.0.0.0"  # 推送路由和DNS到客户端
+  
+  client-to-client
+  keepalive 10 120
+  
+  tls-auth /etc/openvpn/pki/ta.key 0 # This file is secret
+  cipher AES-256-CBC
+  comp-lzo
+  max-clients 50
+  
+  user nobody
+  group nobody
+  
+  persist-key
+  persist-tun
+  
+  status /var/log/openvpn-status.log
+  log         /var/log/openvpn.log
+  log-append  /var/log/openvpn.log
+  
+  verb 3
+  
+  # plugin /usr/lib64/openvpn/plugin/lib/openvpn-auth-ldap.so "/etc/openvpn/auth/ldap.conf cn=*" 
+  # client-cert-not-required
+  ```
+
+- 开启内核路由转发功能:
+
+  ```bash
+  vim /etc/sysctl.conf
+  
+  添加如下内容
+
+  net.ipv4.ip_forward = 1
+
+  sysctl -p
+  ```
+
+- 配置 iptables 策略：
+
+  ```bash
+  iptables -P FORWARD ACCEPT
+  iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j MASQUERADE
+  ```
+
+  > 也可以这样做：添加 iptables 转发规则，对所有源地址（openvpn为客户端分配的地址）为 10.8.0.0/24 的数据包转发后进行源地址转换，伪装成 openvpn 服务器内网地址 xx.x.x.x， 这样 VPN 客户端就可以访问服务器内网的其他机器了。
+
+
+- 创建 openvpn 的 systemd unit 文件：
+
+  ```bash
+  [root@test-node-2 keys]# cat /usr/lib/systemd/system/openvpn.service 
+
+  [Unit]
+  Description=openvpn
+  After=network.target
+  
+  [Service]
+  EnvironmentFile=-/etc/openvpn/openvpn
+  ExecStart=/usr/local/openvpn/sbin/openvpn        --config /etc/openvpn/server.conf
+  Restart=on-failure
+  Type=simple
+  LimitNOFILE=65536
+  
+  [Install]
+  WantedBy=multi-user.target
+  ```
+
+- 启动并设置为开机启动：
+
+  ```bash
+  systemctl start openvpn.service
+  systemctl enable openvpn.service
+  ```
+
+  > 如果服务启动报错，可以根据报错提示排除错误
+
+- 查看端口监听：
+
+  ```bash
+  [root@test-node-2 keys]# netstat -antpu | grep openvpn
+  tcp        0      0 0.0.0.0:1194            0.0.0.0:*               LISTEN      60393/openvpn       
+  tcp        0      0 192.168.31.111:1194     192.168.31.62:55559     ESTABLISHED 60393/openvpn   # 有一个连接
+  ```
+
+- 至此，OpenVPN 服务端安装并配置完成，下一步就是用客户端进行连接测试了，具体测试过程参见 [OpenVPN 连接测试](./openvpn-client-test.md)
+
+
+
+
