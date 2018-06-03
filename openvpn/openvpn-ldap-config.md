@@ -57,7 +57,7 @@
 
 - 下面有些注意事项：
 
-  > ldap.conf 中 `RequireGroup true` 以及 Group 的配置实际我们期望是必须是 LDAP 中的名称为 vpn 的组下的用户才可以登录VPN。但根据这个ISSUE `https://github.com/threerings/openvpn-auth-ldap/issues/7` ，当前 `2.0.3` 的 `openvpn-auth-ldap` 不支持。因此如果只想限制 LDAP 中某些用户可以使用 VPN 的话，只能设置 `RequireGroup false` ，然后可以在 `SearchFilter` 中做一些文章，比如 `(&(uid=%u)(ou=vpn))` 即只有用户的 ou 字段为 vpn 的才可以登录成功。
+  > ldap.conf 中 `RequireGroup true` 以及 Group 的配置实际我们期望是必须是 LDAP 中的名称为 vpn 的组下的用户才可以登录VPN。但根据这个ISSUE <https://github.com/threerings/openvpn-auth-ldap/issues/7> ，当前 `2.0.3` 的 `openvpn-auth-ldap` 不支持。因此如果只想限制 LDAP 中某些用户可以使用 VPN 的话，只能设置 `RequireGroup false` ，然后可以在 `SearchFilter` 中做一些文章，比如 `(&(uid=%u)(ou=vpn))` 即只有用户的 ou 字段为 vpn 的才可以登录成功。
 
 - 完成配置后重新启动 OpenVPN 服务：
 
