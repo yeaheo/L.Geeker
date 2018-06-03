@@ -310,7 +310,6 @@
 - **参考文档：**
 
 - <https://openvpn.net/index.php/open-source/documentation/install.html>
-- <https://blog.frognew.com/2017/09/installing-openvpn.html>
 
 
 
