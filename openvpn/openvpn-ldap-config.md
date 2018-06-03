@@ -10,7 +10,7 @@
   yum -y install epel-releas && yum -y install openvpn-auth-ldap
   ```
 
-- 安装完成后，在目录 `主要安装了/usr/lib64/openvpn/plugin/lib/` 会出现 `openvpn-auth-ldap.so` 文件。在目录 `/etc/openvpn` 目录下自动生成 `auth` 目录，该目录里面存在 `ldap.conf` ，用于配置 LDAP 相关信息。
+- 安装完成后，在目录 `/usr/lib64/openvpn/plugin/lib/` 会出现 `openvpn-auth-ldap.so` 文件。在目录 `/etc/openvpn` 目录下自动生成 `auth` 目录，该目录里面存在 `ldap.conf` ，用于配置 LDAP 相关信息。
 
 ### 配置 LDAP 相关信息
 - 编辑 `/etc/openvpn/auth/ldap.conf` 文件：
@@ -89,7 +89,7 @@
   comp-lzo
   verb 3
   ```
-  
+
 - 修改完配置后使用 OpenVPN 客户端连接即可。如果报错多半是 LDAP 配置错误，需要认真检查。
 
 
