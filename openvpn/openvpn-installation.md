@@ -191,7 +191,7 @@
 - 将签名生成的 CA 证书秘钥和服务端证书秘钥拷贝到证书目录中：
 
   ```bash
-  cp /usr/local/easy-rsa-old-master/easy-rsa/2.0/{keysca.key,ca.crt,server.crt,server.key,dh2048.pem} /etc/openvpn/pki/
+  cp /usr/local/easy-rsa-old-master/easy-rsa/2.0/keys/{ca.key,ca.crt,server.crt,server.key,dh2048.pem} /etc/openvpn/pki/
 
   ls /etc/openvpn/pki/
   ca.crt  ca.key  dh2048.pem  server.crt  server.key  ta.key
