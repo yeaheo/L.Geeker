@@ -221,6 +221,7 @@
   ifconfig-pool-persist ipp.txt
   
   push "route 10.0.0.0 255.0.0.0"  # 推送路由和DNS到客户端
+  push "route 192.168.8.0 255.255.255.0"  # 推送路由到客户端，如果内网服务器地址是192.168.8.0的网段，可以增加此行，然后就可以ping通内网地址的所有服务器
   
   client-to-client
   keepalive 10 120
