@@ -184,7 +184,7 @@
 - 生成 tls-auth key 并将其拷贝到证书目录中：
 
   ```bash
-  /us/local/openvpn/sbin/openvpn --genkey --secret ta.key
+  /usr/local/openvpn/sbin/openvpn --genkey --secret ta.key
   mv ./ta.key /etc/openvpn/pki
   ```
 
