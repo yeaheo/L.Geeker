@@ -3,7 +3,7 @@
   
   > 需要注意的是升级之前先做备份再升级或者配置 TELNET 服务，避免升级失败导致无法远程连接 SSH 服务。
 
-  > [安装配置TELNET](linux-telnet-installation.md)
+  > 安装 TELNET 服务可以参考 [安装配置TELNET](linux-telnet-installation.md)
 
 - **检查当前服务器版本**
   
