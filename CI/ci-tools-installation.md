@@ -41,5 +41,5 @@
 
 - 对于安卓项目，需要用到 Gradle 工具并借助 android-sdk 编译打包，我们需要安装这两个工具。
 - Android-SDK 安装配置参见 [ Linux Android-SDK 安装配置 ](../envconfig/env-android-sdk-config.md)
-- Gradle 安装配置参见 [ ]
+- Gradle 安装配置参见 [ Linux Gradle 安装配置 ](../envconfig/env-gradle-config.md)
 
