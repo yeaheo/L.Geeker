@@ -80,4 +80,20 @@
   > 安装过程中有两个提示是否接受条款，输入 `y` 即可。
   > 下载需要的组件, 注意 `--all` 这个参数一定要加上, 否则后面 filter 里的序号不起作用, 例如我用的是: `android update sdk -u --all --filter 1,2,3,5,11,12,22,23,24,25,26,27,28,29,88,89`
 
+- 安装完成后目录结构：
+
+  ```bash
+  [root@test-node-3 android-sdk]# ll
+  total 20
+  drwxrwxr-x 12 249512 5000 4096 Jun 21 15:35 add-ons
+  drwxr-xr-x  3 root   root   20 Jun 21 15:17 build-tools
+  drwxr-xr-x 21 root   root 4096 Jun 21 15:19 docs
+  drwxr-xr-x  4 root   root   35 Jun 21 15:29 extras
+  drwxrwxr-x 24 249512 5000 4096 Jun 21 15:27 platforms
+  drwxr-xr-x  5 root   root  269 Jun 21 15:17 platform-tools
+  -rw-rw-r--  1 249512 5000 1158 Oct 14  2015 SDK Readme.txt
+  drwxr-xr-x  2 root   root  198 Jun 21 15:35 temp
+  drwxr-xr-x 12 root   root 4096 Jun 21 15:33 tools
+  ```
+  
 
