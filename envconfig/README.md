@@ -1,1 +1,1 @@
-![yeaheo](../cover-img/yeaheo_d.jpg)
+![yeaheo](../cover-img/yeaheo_g.jpg)
