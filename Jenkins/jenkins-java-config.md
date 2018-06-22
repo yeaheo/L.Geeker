@@ -50,3 +50,10 @@
 - 具体信息如下图所示：
 ![jenkins-git](../images/jenkins-git.png "jenkins-git")
 
+- **Jenkins 配置 Gitlab 地址：**
+- 因为我们用 Gitlab 管理项目代码，所以我们需要统一配置 Gitlab 地址： "系统管理" -- "系统设置" -- "Gitlab"
+- 具体信息如下图所示：
+![jenkins-gitlab](../images/jenkins-gitlab.png "jenkins-gitlab")
+
+
+
