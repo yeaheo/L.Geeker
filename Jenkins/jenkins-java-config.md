@@ -50,10 +50,18 @@
 - 具体信息如下图所示：
 ![jenkins-git](../images/jenkins-git.png "jenkins-git")
 
-- **Jenkins 配置 Gitlab 地址：**
+### Jenkins 配置 Gitlab 地址
 - 因为我们用 Gitlab 管理项目代码，所以我们需要统一配置 Gitlab 地址： "系统管理" -- "系统设置" -- "Gitlab"
 - 具体信息如下图所示：
 ![jenkins-gitlab](../images/jenkins-gitlab.png "jenkins-gitlab")
+
+
+### Jenkins 配置远程服务器 SSH 连接信息
+- 因为我们之前已经安装了 `Publish Over SSH` 插件，所以可以直接配置远程服务器的 SSH 连接信息，具体流程如下：
+- "系统管理" -- "系统设置" -- "Publish over SSH" ，具体所填信息如下：
+![jenkins-ssh-server](../images/jenkins-ssh-server.png "jenkins-ssh-server")
+
+
 
 
 
