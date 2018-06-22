@@ -55,12 +55,21 @@
 - 具体信息如下图所示：
 ![jenkins-gitlab](../images/jenkins-gitlab.png "jenkins-gitlab")
 
+  > 配置 Gitlab 的地址，红字表示需要 Gitlab 的账号密码，但是这个可以在新建项目的时候指定。
+
 
 ### Jenkins 配置远程服务器 SSH 连接信息
 - 因为我们之前已经安装了 `Publish Over SSH` 插件，所以可以直接配置远程服务器的 SSH 连接信息，具体流程如下：
 - "系统管理" -- "系统设置" -- "Publish over SSH" ，具体所填信息如下：
 ![jenkins-ssh-server](../images/jenkins-ssh-server.png "jenkins-ssh-server")
 
+- 其中，"Passphrase" 输入的是远端服务器 SSH 账号密码，"SSH Servers" 可以定义多个，"Remote Directory" 可以指定远程服务器目录，配置完成后 Jenkins 自动构建的 war/jar 包就会传送到这个目录，但是需要我们将此目录相关权限赋予指定用户，上图为 "citest" 用户。
+
+- Publish_over_SSH 插件，可以使用 Path to key 指定 jenkins 主机的私钥路径，也可以如上。 
+  
+  > 注意：部署应用的主机需要 jenkins 主机的公钥，可以 ssh-copy-id 命令复制过去。
+
+- 针对 JAVA 项目的 Jenkins 配置基本完成，剩下的工作就是新建 JOB 进行自动化构建了。
 
 
 
