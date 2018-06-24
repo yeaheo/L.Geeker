@@ -1,4 +1,4 @@
-## Jenkins 持续集成 JAVA 项目 - 1
+## Jenkins 持续集成 JAVA 项目 - WAR
 
 - 本部分基本流程如下：
 
@@ -143,6 +143,15 @@
   </servers>
   ```
 
+- 至此，针对 JAVA 项目中的 Maven 配置基本完成，接下来就是在 Jenkins 上新建项目实施自动构建了。
+
+### Jenkins 新建 JAVA 项目
+- 打开 Jenkins 控制面板按如下步骤操作即可：
+- "**新建任务**"--"**输入任务名称**"--"**构建一个maven项目**"--"**确定**"
+- 点击确定后会弹出项目相关配置界面，我们需要配置相关信息，具体包括： General-源码管理-构建触发器-构建环境-Pre Steps-Build-Post Steps-构建设置-构建后操作，具体选项配置参数如下描述：
+
+- **General** 具体配置如下图所示：
+![jenkins-war-a](../images/jenkins-war-a.jpg "Jenkins-war-General")
 
 
 
