@@ -158,6 +158,24 @@
 - 源码管理我们选择用 git 做源码，当然也可以用 SVN，具体配置如下图所示（只做参考）：
 ![jenkins-war-b](../images/jenkins-war-b.png "jenkins-war-源码管理")
 
+- 构建触发器如下图所示：
+![jenkins-war-c](../images/jenkins-war-c.png "jenkins-war-触发器")
+
+- 构建环境信息如下图所示：
+![jenkins-war-add](../images/jenkins-war-add.png "jenkins-war-构建环境")
+
+- Pre Steps 及 Build 信息如下图所示：
+![jenkins-war-d](../images/jenkins-war-d.png "jenkins-war-build")
+
+- Post Steps 信息如下图所示：
+![jenkins-war-e](../images/jenkins-war-e.png "jenkins-war-Post Steps")
+
+  > “Post Steps” 和 “构建后操作” 其实是一样的，这里不再配置 “构建后操作” 选项。
+
+- “构建设置” 选项和邮件发送有关，这里也不再配置。
+
+
+
 
 
 
