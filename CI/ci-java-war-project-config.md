@@ -48,7 +48,7 @@
     <repositories>
         <repository>
             <id>nexus</id>
-            <url>http://192.168.8.125:88/repository/public/</url>
+            <url>http://192.168.8.125:8080/repository/public/</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
@@ -64,7 +64,7 @@
         <pluginRepositories>
             <pluginRepository>
                 <id>nexus</id>
-                <url>http://192.168.8.125:88/repository/public/</url>
+                <url>http://192.168.8.125:8080/repository/public/</url>
                 <releases>
                     <enabled>true</enabled>
                     <updatePolicy>always</updatePolicy>
@@ -79,6 +79,49 @@
         </pluginRepositories>
     </profile>
     ```
+
+- 在 repositories 元素下，可以使用 repository 子元素声明一个或者多个远程仓库。
+
+- **配置中央仓库镜像**
+- 配置镜像仓库一般在 `setting.xml` 文件中的 `<mirrors>` 字段中，内容如下：
+
+  ```xml
+  <mirrors>
+    ... 
+    <mirror> 
+    <id>maven.net.cn</id> 
+    <name>one of the central mirrors in China</name>
+    <url>http://maven.net.cn/content/groups/public/</url> 
+    <mirrorOf>central</mirrorOf> 
+    </mirror>
+    ...
+  </mirrors>
+  ```
+
+- **配置私服镜像：**
+- 常用的私服镜像有阿里云、开源中国、网易等，具体配置和配置中央仓库镜像类似，具体内容如下,我们以阿里云仓库镜像做参考：
+
+  ```xml
+  <mirrors>
+  	...
+    <mirror>
+      <id>alimaven</id>
+      <name>aliyun maven</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+    ...
+  </mirrors>
+  ```
+
+- 同样的，我们也可以配置多个私服镜像。
+
+- **仓库搜索服务:**
+- 以下网站提供 Maven 仓库搜索功能：
+- Sonatype Nexus地址：<http://repository.sonatype.org/>
+- MVNrepository地址：<http://mvnrepository.com/>
+
+
 
 
 
