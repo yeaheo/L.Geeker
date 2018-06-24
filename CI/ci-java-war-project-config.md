@@ -121,6 +121,30 @@
 - Sonatype Nexus地址：<http://repository.sonatype.org/>
 - MVNrepository地址：<http://mvnrepository.com/>
 
+#### Maven 仓库认证
+- 大部分公共的远程仓库无须认证就可以直接访问，但我们在平时的开发中往往会部署自己的 Maven 远程仓库，出于安全方面的考虑，我们需要提供认证信息才能访问这样的远程仓库。
+- 配置认证信息和配置远程仓库不同，远程仓库可以直接在 `pom.xml` 中配置，但是认证信息必须配置在 `settings.xml` 文件中。这是因为 `pom.xml` 往往是被提交到代码仓库中供所有成员访问的，而 `settings.xml` 一般只存在于本机。因此，在 `settings.xml` 中配置认证信息更为安全。
+- Maven 仓库认证一般在 `setting.xml` 文件的 `<servers>` 字段内配置，具体信息可以参考如下：
+
+  ```xml
+  <servers>
+  	...
+    <server>
+      <id>snapshots</id>
+      <username>snapshots</username>
+      <password>695633290D050F31CEC0C9D4BD4A57FE</password>
+    </server>
+    <server>
+      <id>releases</id>
+      <username>releases</username>
+      <password>02B67C3EAE678DC49209D6DE4709A171</password>
+    </server>
+    ...
+  </servers>
+  ```
+
+
+
 
 
 
