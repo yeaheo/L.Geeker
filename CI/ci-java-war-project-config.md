@@ -167,10 +167,17 @@
 - Pre Steps 及 Build 信息如下图所示：
 ![jenkins-war-d](../images/jenkins-war-d.png "jenkins-war-build")
 
+  > `clean install -Dmaven.test.skip=true` 表示跳过单元测试
+
 - Post Steps 信息如下图所示：
 ![jenkins-war-e](../images/jenkins-war-e.png "jenkins-war-Post Steps")
 
   > “Post Steps” 和 “构建后操作” 其实是一样的，这里不再配置 “构建后操作” 选项。
+  > `holiday-server` 表示需要将打包好的 war 包上传至对应的服务器，`holiday-server` 先前配置过，不再赘述。
+- Source files : target/\*.war 表示需要传送的文件
+- Remove Prefix: 表示只上传 war 包
+- Remote directory: 留空  之前配置 `holiday-server` 时已经配置过，所以留空
+- Exec Command: /opt/script/autoCI.sh 表示构建完成并上传 war 包到指定服务器指定目录下后需要执行的脚本，具体脚本内容参见 [autoCI.sh](../shell/autoCI.sh)
 
 - “构建设置” 选项和邮件发送有关，这里也不再配置。
 
