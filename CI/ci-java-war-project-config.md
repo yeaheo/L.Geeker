@@ -177,7 +177,7 @@
 - Source files : target/\*.war 表示需要传送的文件
 - Remove Prefix: 表示只上传 war 包
 - Remote directory: 留空  之前配置 `holiday-server` 时已经配置过，所以留空
-- Exec Command: /opt/script/autoCI.sh 表示构建完成并上传 war 包到指定服务器指定目录下后需要执行的脚本，具体脚本内容参见 [autoCI.sh](../shell/autoCI.sh)
+- Exec Command: /opt/script/autoCI.sh 表示构建完成并上传 war 包到指定服务器指定目录下后需要执行的脚本，具体脚本内容参见 [autoCI.sh](../Shell/autoCI.sh)
 
 - “构建设置” 选项和邮件发送有关，这里也不再配置。
 
