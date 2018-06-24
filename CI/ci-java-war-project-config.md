@@ -153,6 +153,12 @@
 - **General** 具体配置如下图所示：
 ![jenkins-war-a](../images/jenkins-war-a.jpg "Jenkins-war-General")
 
+  > GITLAB-CI 先前配置过，不再赘述！
+
+- 源码管理我们选择用 git 做源码，当然也可以用 SVN，具体配置如下图所示（只做参考）：
+![jenkins-war-b](../images/jenkins-war-b.png "jenkins-war-源码管理")
+
+
 
 
 
