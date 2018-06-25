@@ -12,5 +12,9 @@
 
 - 安装完 Jenkins 后，针对 JAVA 项目我们需要配置 Jenkins，具体配置参数参见：[Jenkins-java-config](../Jenkins/jenkins-java-config.md)
 
+
 ### Jenkins 新建 JAVA 项目
--
+- 本部分流程和 [ Jenkins 新建 JAVA 项目](ci-java-war-project-config.md) 基本相同,下图所示参数的配置基本类似，按照上述类似配置即可：
+![jenkins-docker-a](../images/jenkins-docker-a.png "jenkins-docker-project")
+
+- 除上述配置外，其他的配置基本不用配置，
