@@ -1,9 +1,10 @@
 ## Jenkins 针对 JAVA 项目的配置
 
-- Jenkins 自动构建 JAVA 项目需要提前准备好 JAVA 相关环境，例如： JDK、 Maven、 Git等，具体安装过程如下：
+- Jenkins 自动构建 JAVA 项目需要提前准备好 JAVA 相关环境，例如： JDK、 Maven、 Git、Docker 等，具体安装过程如下：
 - JDK 安装配置参见： [ JDK 安装配置 ](../envconfig/env-java-jdk-config.md)，也可以用 rpm 包管理工具安装；
 - Maven 安装配置参见： [ Maven 安装配置 ](../envconfig/env-maven-config.md)
 - Git 安装配置参见： [ Git 安装配置 ](../envconfig/env-git-installation.md)，也可以用 rpm 包管理工具安装；
+- Docker 安装配置参见： [Docker 安装配置](https://github.com/yeaheo/docker-base/blob/master/docker-installation.md)
 
   > 上述基本工具建议用二进制的方式安装，这样在 Jenkins 中方便指定相应路径。
 
@@ -49,6 +50,12 @@
 - 打开并登录 Jenkins 系统管理界面： "系统管理" -- "全局工具配置" -- "Git"
 - 具体信息如下图所示：
 ![jenkins-git](../images/jenkins-git.png "jenkins-git")
+
+- **Jenkins 指定 Docker 路径：**
+- 打开并登录 Jenkins 系统管理界面： "系统管理" -- "全局工具配置" -- "Docker 安装"
+- 具体信息如下图所示：
+![jenkins-docker](../images/jenkins-docker-b.png "jenkins-docker")
+
 
 ### Jenkins 配置 Gitlab 地址
 - 因为我们用 Gitlab 管理项目代码，所以我们需要统一配置 Gitlab 地址： "系统管理" -- "系统设置" -- "Gitlab"
