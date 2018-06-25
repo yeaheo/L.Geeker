@@ -13,7 +13,7 @@
 - 安装完 Jenkins 后，针对 JAVA 项目我们需要配置 Jenkins，具体配置参数参见：[Jenkins-java-config](../Jenkins/jenkins-java-config.md)
 
 ### Jenkins 新建 JAVA 项目
-- 本部分流程和 [ Jenkins 新建 JAVA 项目](ci-java-war-project-config.md) 相同，唯一不同的是 “构建后的操作” 部分,具体区别如下图所示：
+- 本部分流程和 [ Jenkins 新建 JAVA 项目](ci-java-war-project-config.md) 相同，唯一不同的是 “构建后的操作” 部分, 具体区别如下图所示：
 ![jenkins-jar-a](../images/jenkins-jar-a.png "jenkins-jar-构建后操作")
 
 - Source files : target/\*.jar 表示需要传送的文件
