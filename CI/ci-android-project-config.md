@@ -45,19 +45,20 @@
   ```xml
   applicationVariants.all { variant ->
         variant.outputs.each { output ->
-            def today = new Date().format('MMdd-HHmm');   //自定义添加日期
-            def outputFile = output.outputFile;          //def意为定义，其实你可以把它当做String outputFile = output.outputFile这样来理解
+            def today = new Date().format('MMdd-HHmm');//自定义添加日期
+            def outputFile = output.outputFile;//def意为定义，其实你可以把它当做String outputFile = output.outputFile这样来理解
             def newFilePath = "/data/android-app/release";
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
                 def oldFileName = outputFile.name.replace(".apk","-" + defaultConfig.versionName + ".apk");//replace方法，将原本的xxx-release.apk更名为xxx-release-0802-1212-v1.0.0.apk这样的apk命名
                 File newFile = new File(newFilePath);//指定移动到的目标目录
                 output.outputFile = new File(newFile,oldFileName );//创建并生成目标目录
-//              outputFile.delete()
+//               outputFile.delete()
             }else {
             }
         }
     }
   ```
+  
 
   > 代码与测试包的 svn 地址不一样，需要将 apk 输出到另外一个专门的路径。 `/data/android-app/release` 是对应放置 apk 文件的路径，你需要先 checkout 下来，上面输出 apk 的路径与此路径必须一致。上传至 gitlab 的脚本与此大致类似，这里就不说明了。
 
