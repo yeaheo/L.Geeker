@@ -50,7 +50,7 @@
 
   ```xml
   <build>
-  	...
+  ...
     <resources>
     	<resource>  
           <directory>src/main/resources</directory>  
@@ -65,7 +65,7 @@
 	        <targetPath>../docker</targetPath>
 	    </resource>
     </resources>
-    ...
+  ...
   </build>
   ```
 
