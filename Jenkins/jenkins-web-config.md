@@ -13,3 +13,8 @@
 - **Jenkins 配置 nodejs 路径**
 - “系统管理” -- “全局工具配置” -- “NodeJS” ，具体配置信息如下图所示，路径还需根据实际情况配置:
 - ![jenkins-nodejs](../images/jenkins-web-a.png "Jenkins 配置 nodejs 路径")
+
+### NodeJS 镜像配置
+- 由于网络的原因，在国内下载 nodejs 相关依赖会很困难，为了加速下载速度，我们可以配置国内的镜像源，具体配置参见: [nodejs 配置国内仓库](../envconfig/env-nodejs-config.md)
+
+- 至此， Jenkins 针对 web 前端的项目基本配置完成。
