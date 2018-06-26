@@ -18,4 +18,7 @@
 
 - ![jenkins-docker-a](../images/jenkins-docker-a.png "jenkins-docker-project")
 
-- 除上述配置外，其他的配置基本不用配置，
+- 除上述配置外，还需要配置 “构建后操作”，构建后操作需要结合 `kubectl` 重启对应的微服务。具体命令如下图所示：
+
+- ![jenkins-docekr-post-steps](../images/jenkins-docker-d.png "jenkins-docekr-post-steps")
+
