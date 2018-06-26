@@ -9,7 +9,7 @@
 
 ### 配置 Jenkins 相关工具
 
-- 安装完 Jenkins 后，针对 Android 项目我们需要配置 Jenkins，具体配置参数参见：[ Jenkins-web-config ](../Jenkins/jenkins-android-config.md)
+- 安装完 Jenkins 后，针对 Android 项目我们需要配置 Jenkins，具体配置参数参见：[ Jenkins-Android-config ](../Jenkins/jenkins-android-config.md)
 
 
 ### Jenkins 新建 Android 项目
@@ -26,6 +26,7 @@
 
 - 构建完成后需要将构建的 apk 安装包上传至 svn 或 git 服务器指定目录下，这里以 svn 为例，添加构建操作： “**增加构建步骤**” -- “**Execute shell**” ,具体步骤如下图所示：
 - ![jenkins-android-e](../images/jenkins-android-e.png "Jenkins 构建步骤")
+
 - 具体命令参考如下：
 
   ```bash
@@ -37,3 +38,4 @@
   svn commit --username lvxiaoteng --password Lv_000@yoo.com  -m "add build apk" --no-auth-cache
   ```
 
+- 配置完成后就可以用 jenkins 构建安卓项目了。如果有报错还需根据报错信息排错。
