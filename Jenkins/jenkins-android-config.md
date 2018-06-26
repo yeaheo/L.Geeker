@@ -16,3 +16,5 @@
 - **配置 Android-SDK 路径：**
 - 打开 Jenkins 主页面，“系统管理” -- “系统设置” -- “全局属性” -- “环境变量” ，如下图所示：
 - ![jenkins-android-b](../images/jenkins-android-b.png "Jenkins 配置 Android-sdk 路径")
+
+- 这两个工具配置完成后，jenkins 基本配置就完成了。
