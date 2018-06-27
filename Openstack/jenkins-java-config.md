@@ -1,10 +1,10 @@
 ## Jenkins 针对 JAVA 项目的配置
 
 - Jenkins 自动构建 JAVA 项目需要提前准备好 JAVA 相关环境，例如： JDK、 Maven、 Git、Docker 等，具体安装过程如下：
-- JDK 安装配置参见： [ JDK 安装配置 ](../envconfig/env-java-jdk-config.md)，也可以用 rpm 包管理工具安装；
-- Maven 安装配置参见： [ Maven 安装配置 ](../envconfig/env-maven-config.md)
-- Git 安装配置参见： [ Git 安装配置 ](../envconfig/env-git-installation.md)，也可以用 rpm 包管理工具安装；
-- Docker 安装配置参见： [Docker 安装配置](https://github.com/yeaheo/docker-base/blob/master/docker-installation.md)
+- JDK 安装配置参见： [ JDK 安装配置 ](env-java-jdk-config.md)，也可以用 rpm 包管理工具安装；
+- Maven 安装配置参见： [ Maven 安装配置 ](env-maven-config.md)
+- Git 安装配置参见： [ Git 安装配置 ](env-git-installation.md)，也可以用 rpm 包管理工具安装；
+- Docker 安装配置参见： [Docker 安装配置](docker-installation.md)
 
   > 上述基本工具建议用二进制的方式安装，这样在 Jenkins 中方便指定相应路径。
 
@@ -36,31 +36,31 @@
 
 - 打开并登录 Jenkins 系统管理界面： "系统管理" -- "全局工具配置" -- "JDK 安装"
 - 具体信息如下图所示：
-![jenkins-jdk](../images/jenkins-jdk.png "jenkins-jdk")
+![jenkins-jdk](images/jenkins-jdk.png "jenkins-jdk")
 
 
 - **Jenkins 指定 Maven 路径:**
 
 - 打开并登录 Jenkins 系统管理界面： "系统管理" -- "全局工具配置" -- "Maven 安装"
 - 具体信息如下图所示：
-![jenkins-maven](../images/jenkins-maven.png "jenkins-maven")
+![jenkins-maven](images/jenkins-maven.png "jenkins-maven")
 
 
 - **Jenkins 指定 Git 路径：**
 - 打开并登录 Jenkins 系统管理界面： "系统管理" -- "全局工具配置" -- "Git"
 - 具体信息如下图所示：
-![jenkins-git](../images/jenkins-git.png "jenkins-git")
+![jenkins-git](images/jenkins-git.png "jenkins-git")
 
 - **Jenkins 指定 Docker 路径：**
 - 打开并登录 Jenkins 系统管理界面： "系统管理" -- "全局工具配置" -- "Docker 安装"
 - 具体信息如下图所示：
-![jenkins-docker](../images/jenkins-docker-b.png "jenkins-docker")
+![jenkins-docker](images/jenkins-docker-b.png "jenkins-docker")
 
 
 ### Jenkins 配置 Gitlab 地址
 - 因为我们用 Gitlab 管理项目代码，所以我们需要统一配置 Gitlab 地址： "系统管理" -- "系统设置" -- "Gitlab"
 - 具体信息如下图所示：
-![jenkins-gitlab](../images/jenkins-gitlab.png "jenkins-gitlab")
+![jenkins-gitlab](images/jenkins-gitlab.png "jenkins-gitlab")
 
   > 配置 Gitlab 的地址，红字表示需要 Gitlab 的账号密码，但是这个可以在新建项目的时候指定。
 
@@ -68,7 +68,7 @@
 ### Jenkins 配置远程服务器 SSH 连接信息
 - 因为我们之前已经安装了 `Publish Over SSH` 插件，所以可以直接配置远程服务器的 SSH 连接信息，具体流程如下：
 - "系统管理" -- "系统设置" -- "Publish over SSH" ，具体所填信息如下：
-![jenkins-ssh-server](../images/jenkins-ssh-server.png "jenkins-ssh-server")
+![jenkins-ssh-server](images/jenkins-ssh-server.png "jenkins-ssh-server")
 
 - 其中，"Passphrase" 输入的是远端服务器 SSH 账号密码，"SSH Servers" 可以定义多个，"Remote Directory" 可以指定远程服务器目录，配置完成后 Jenkins 自动构建的 war/jar 包就会传送到这个目录，但是需要我们将此目录相关权限赋予指定用户，上图为 "citest" 用户。
 

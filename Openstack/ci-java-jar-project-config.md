@@ -10,11 +10,11 @@
 
 ### 配置 Jenkins 相关工具
 
-- 安装完 Jenkins 后，针对 JAVA 项目我们需要配置 Jenkins，具体配置参数参见：[Jenkins-java-config](../Jenkins/jenkins-java-config.md)
+- 安装完 Jenkins 后，针对 JAVA 项目我们需要配置 Jenkins，具体配置参数参见：[Jenkins-java-config](jenkins-java-config.md)
 
 ### Jenkins 新建 JAVA 项目
 - 本部分流程和 [ Jenkins 新建 JAVA 项目](ci-java-war-project-config.md) 相同，唯一不同的是 “构建后的操作” 部分, 具体区别如下图所示：
-![jenkins-jar-a](../images/jenkins-jar-a.png "jenkins-jar-构建后操作")
+![jenkins-jar-a](images/jenkins-jar-a.png "jenkins-jar-构建后操作")
 
 - Source files : target/\*.jar 表示需要传送的文件
 - Remove Prefix: 表示只上传 jar 包
@@ -23,7 +23,7 @@
 
   > 大多数情况下我们需要保证服务器环境的整洁，几乎所有项目都是分类保存的，这里我们就需要自己编写脚本对构建完成的 jar 包做处理了。
 
-- 自定义脚本可以参见 [auto-jar.sh](../Shell/auto-jar.sh)
+- 自定义脚本可以参见 [auto-jar.sh](Shell/auto-jar.sh)
 - 配置完成后 “立即构建” 即可。
 
 ### 说明

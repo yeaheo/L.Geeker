@@ -10,17 +10,17 @@
 
 ### 配置 Jenkins 相关工具
 
-- 安装完 Jenkins 后，针对 JAVA 项目我们需要配置 Jenkins，具体配置参数参见：[Jenkins-java-config](../Jenkins/jenkins-java-config.md)
+- 安装完 Jenkins 后，针对 JAVA 项目我们需要配置 Jenkins，具体配置参数参见：[Jenkins-java-config](jenkins-java-config.md)
 
 
 ### Jenkins 新建 JAVA 项目
 - 本部分流程和 [ Jenkins 新建 JAVA 项目](ci-java-war-project-config.md) 基本相同,下图所示参数的配置基本类似，按照上述类似配置即可：
 
-- ![jenkins-docker-a](../images/jenkins-docker-a.png "jenkins-docker-project")
+- ![jenkins-docker-a](images/jenkins-docker-a.png "jenkins-docker-project")
 
 - 除上述配置外，还需要配置 “构建后操作”，构建后操作需要结合 `kubectl` 重启对应的微服务。具体命令如下图所示：
 
-- ![jenkins-docekr-post-steps](../images/jenkins-docker-d.png "jenkins-docekr-post-steps")
+- ![jenkins-docekr-post-steps](images/jenkins-docker-d.png "jenkins-docekr-post-steps")
 
 - 上述命令实现的功能总结起来就是：
 

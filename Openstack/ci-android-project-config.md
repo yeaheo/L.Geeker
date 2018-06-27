@@ -9,23 +9,23 @@
 
 ### 配置 Jenkins 相关工具
 
-- 安装完 Jenkins 后，针对 Android 项目我们需要配置 Jenkins，具体配置参数参见：[ Jenkins-Android-config ](../Jenkins/jenkins-android-config.md)
+- 安装完 Jenkins 后，针对 Android 项目我们需要配置 Jenkins，具体配置参数参见：[ Jenkins-Android-config ](jenkins-android-config.md)
 
 
 ### Jenkins 新建 Android 项目
 - 打开 Jenkins 控制面板按如下步骤操作即可：
 - "**新建任务**"--"**输入任务名称**"--"**构建一个自由风格的项目**"--"**确定**"
-- 点击确定后会弹出项目相关配置界面，我们需要配置相关信息，具体包括： General-源码管理-构建触发器-构建环境-构建-构建后操作，其中 “General-源码管理-构建触发器-构建环境” 配置和配置 java 项目的配置类似，具体参见 [ jenkins 持续集成 java 项目](../CI/ci-java-war-project-config.md),这里只是说明一下不同的地方的配置，具体如下：
+- 点击确定后会弹出项目相关配置界面，我们需要配置相关信息，具体包括： General-源码管理-构建触发器-构建环境-构建-构建后操作，其中 “General-源码管理-构建触发器-构建环境” 配置和配置 java 项目的配置类似，具体参见 [ jenkins 持续集成 java 项目](ci-java-war-project-config.md),这里只是说明一下不同的地方的配置，具体如下：
 
 - **构建操作**
 - “**增加构建步骤**” -- “**Invoke Gradle Script**” 如下图所示：
-- ![jenkins-android-c](../images/jenkins-android-c.png "jenkins gradle 配置")
+- ![jenkins-android-c](images/jenkins-android-c.png "jenkins gradle 配置")
 
 - 具体构建信息如下图所示：
-- ![jenkins-android-d](../images/jenkins-android-d.png "jenkins gradle 构建")
+- ![jenkins-android-d](images/jenkins-android-d.png "jenkins gradle 构建")
 
 - 构建完成后需要将构建的 apk 安装包上传至 svn 或 git 服务器指定目录下，这里以 svn 为例，添加构建操作： “**增加构建步骤**” -- “**Execute shell**” ,具体步骤如下图所示：
-- ![jenkins-android-e](../images/jenkins-android-e.png "Jenkins 构建步骤")
+- ![jenkins-android-e](images/jenkins-android-e.png "Jenkins 构建步骤")
 
 - 具体命令参考如下：
 

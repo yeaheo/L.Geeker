@@ -10,7 +10,7 @@
 
 ### 配置 Jenkins 相关工具
 
-- 安装完 Jenkins 后，针对 JAVA 项目我们需要配置 Jenkins，具体配置参数参见：[Jenkins-java-config](../Jenkins/jenkins-java-config.md)
+- 安装完 Jenkins 后，针对 JAVA 项目我们需要配置 Jenkins，具体配置参数参见：[Jenkins-java-config](jenkins-java-config.md)
 
 
 ### 配置 Maven
@@ -152,26 +152,26 @@
 - 点击确定后会弹出项目相关配置界面，我们需要配置相关信息，具体包括： General-源码管理-构建触发器-构建环境-Pre Steps-Build-Post Steps-构建设置-构建后操作，具体选项配置参数如下描述：
 
 - **General** 具体配置如下图所示：
-![jenkins-war-a](../images/jenkins-war-a.jpg "Jenkins-war-General")
+![jenkins-war-a](images/jenkins-war-a.jpg "Jenkins-war-General")
 
   > GITLAB-CI 先前配置过，不再赘述！
 
 - 源码管理我们选择用 git 做源码，当然也可以用 SVN，具体配置如下图所示（只做参考）：
-![jenkins-war-b](../images/jenkins-war-b.png "jenkins-war-源码管理")
+![jenkins-war-b](images/jenkins-war-b.png "jenkins-war-源码管理")
 
 - 构建触发器如下图所示：
-![jenkins-war-c](../images/jenkins-war-c.png "jenkins-war-触发器")
+![jenkins-war-c](images/jenkins-war-c.png "jenkins-war-触发器")
 
 - 构建环境信息如下图所示：
-![jenkins-war-add](../images/jenkins-war-add.png "jenkins-war-构建环境")
+![jenkins-war-add](images/jenkins-war-add.png "jenkins-war-构建环境")
 
 - Pre Steps 及 Build 信息如下图所示：
-![jenkins-war-d](../images/jenkins-war-d.png "jenkins-war-build")
+![jenkins-war-d](images/jenkins-war-d.png "jenkins-war-build")
 
   > `clean install -Dmaven.test.skip=true` 表示跳过单元测试
 
 - Post Steps 信息如下图所示：
-![jenkins-war-e](../images/jenkins-war-e.png "jenkins-war-Post Steps")
+![jenkins-war-e](images/jenkins-war-e.png "jenkins-war-Post Steps")
 
   > “Post Steps” 和 “构建后操作” 其实是一样的，这里不再配置 “构建后操作” 选项。
   > `holiday-server` 表示需要将打包好的 war 包上传至对应的服务器，`holiday-server` 先前配置过，不再赘述。
@@ -179,7 +179,7 @@
 - Source files : target/\*.war 表示需要传送的文件
 - Remove Prefix: 表示只上传 war 包
 - Remote directory: 留空  之前配置 `holiday-server` 时已经配置过，所以留空
-- Exec Command: /opt/script/autoCI.sh 表示构建完成并上传 war 包到指定服务器指定目录下后需要执行的脚本，具体脚本内容参见 [autoCI.sh](../Shell/autoCI.sh)
+- Exec Command: /opt/script/autoCI.sh 表示构建完成并上传 war 包到指定服务器指定目录下后需要执行的脚本，具体脚本内容参见 [autoCI.sh](Shell/autoCI.sh)
 
 - “构建设置” 选项和邮件发送有关，这里也不再配置。
 - 配置完成后点击 “立即构建” 开始构建项目，可以从控制台看到构建日志。
