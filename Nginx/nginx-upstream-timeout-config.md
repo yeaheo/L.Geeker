@@ -5,6 +5,7 @@
   "[error] 11618#0: *324911 upstream timed out (110: Connection timed out) while reading response header from upstream, "
   ```
 
+- 这种情况多发生在用 nginx 做反向代理的时候，例如用 nginx 做反向代理转发某一个 swagger 接口，当访问接口时报错，状态码一般为 504 ，也就是代理超时的问题。
 - 其实这是由于超时问题造成的，解决方案如下：
 
 ### Proxy 方式
