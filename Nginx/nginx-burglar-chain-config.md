@@ -42,3 +42,4 @@
 
 
 ### 使用第三方模块 ngx_http_accesskey_module 实现 Nginx 防盗链
+- 此部分和 PHP 关系比较密切，暂不配置。
