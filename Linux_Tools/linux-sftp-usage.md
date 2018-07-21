@@ -2,7 +2,7 @@
 - sftp 是Secure File Transfer Protocol 的缩写，安全文件传送协议。可以为传输文件提供一种安全的网络的加密方法。
 
 ### sftp 的用法：
-- 示例： 如远程主机的 IP 是 192.168.1.1 或者域名是 <www.xxx.com>,用户名是 root，在命令行模式下： `sftp root@192.168.1.1` 或者 `sftp root@www.xxx.com` 回车进入命令行
+- 示例： 如远程主机的 IP 是 192.168.1.1 或者域名是 `www.xxx.com`,用户名是 root，在命令行模式下： `sftp root@192.168.1.1` 或者 `sftp root@www.xxx.com` 回车进入命令行
   
   ```bash
   sftp>
