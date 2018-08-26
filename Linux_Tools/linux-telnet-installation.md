@@ -25,7 +25,7 @@
         log_on_failure  += USERID
    }
   ```
-- 编辑认证模块
+- 编辑认证模块文件 `/etc/xinetd.d/remote` 
   
   ```bash
   #%PAM-1.0
