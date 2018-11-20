@@ -72,7 +72,7 @@ $ systemctl stop rabbitmq-server.service
 $ systemctl start rabbitmq-server.service
 ```
 
-#### 切换 RabbitmQ 启动方式
+#### 切换 RabbitMQ 启动方式
 
 所有节点需要使用 `-detached` 参数启动服务：
 
