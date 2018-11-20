@@ -56,6 +56,34 @@ RabbitMQ: v3.7.9
 
 rabbitmq-server 启动时，会一起启动节点和应用，它预先设置 RabbitMQ 应用为 standalone 模式。要将一个节点加入到现有的集群中，你需要停止这个应用，并将节点设置为原始状态。如果使用 `rabbitmqctl stop`，应用和节点都将被关闭。所以使用 `rabbitmqctl stop_app`仅仅关闭应用
 
+#### 同步集群 cookie
+
+RabbitMQ 利用 erlang 的分布式特性组建集群，erlang 集群通过 magic cookie 实现，此 cookie 保存在`$home/.erlang.cookie`，这里即：`/var/lib/rabbitmq/.erlang.cookie`，需要保证集群各节点的此 cookie 一致，可以选取一个节点的 cookie，采用 scp 同步到其他节点：
+
+```bash
+$ scp /var/lib/rabbitmq/.erlang.cookie root@node01:/var/lib/rabbitmq/.erlang.cookie
+$ scp /var/lib/rabbitmq/.erlang.cookie root@node02:/var/lib/rabbitmq/.erlang.cookie
+```
+
+更换 cookie 后需要重启 RabbitMQ 服务：
+
+```bash
+$ systemctl stop rabbitmq-server.service
+$ systemctl start rabbitmq-server.service
+```
+
+#### 切换 RabbitmQ 启动方式
+
+所有节点需要使用 `-detached` 参数启动服务：
+
+```bash
+# 需要在所有节点上执行
+$ rabbitmqctl stop
+$ rabbitmq-server -detached
+```
+
+#### 组建 RabbitMQ 集群
+
 因为将其他两个 RabbitMQ 加入到 master 主机现有集群中，所以只需要在 `node01`和 `node02` 上操作即可：
 
 node01 主机（10.200.100.217）上操作：
@@ -80,11 +108,121 @@ node02$ rabbitmqctl start_app
 
 ```bash
 $ rabbitmqctl cluster_status
+Cluster status of node rabbit@master ...
+[{nodes,[{disc,[rabbit@master,rabbit@node01]},{ram,[rabbit@node02]}]},
+ {running_nodes,[rabbit@node02,rabbit@node01,rabbit@master]},
+ {cluster_name,<<"rabbit@master">>},
+ {partitions,[]},
+ {alarms,[{rabbit@node02,[]},{rabbit@node01,[]},{rabbit@master,[]}]}]
 ```
-
-
 
 此时 `node01` 与 `node02` 也会自动建立连接，集群配置完成。
 
 > 如果要使用内存节点，则可以使用 `rabbitmqctl join_cluster --ram rabbit@master` 加入集群。
+
+RabbitMQ 节点分为内存节点和磁盘节点：
+
+1）内存节点（RAM）：内存节点将所有的队列、交换机、绑定、用户、权限和vhost的元数据定义存储在内存中
+2）磁盘节点（Disk）：将元数据存储在磁盘中，单节点系统只允许磁盘类型的节点，防止重启RabbitMQ的时候，丢失系统的配置信息。
+
+如果需要切换节点类型，可以参考如下命令：
+
+```bash
+#如果节点已是"disk"节点，可以修改为内存节点
+$ rabbitmqctl stop_app
+$ rabbitmqctl change_cluster_node_type ram
+$ rabbitmqctl start_app
+```
+
+> 1）RabbitMQ要求在集群中至少有一个磁盘节点，所有其他节点可以是内存节点，当节点加入或者离开集群时，必须要将该变更通知到至少一个磁盘节点。如果集群中唯一的一个磁盘节点崩溃的话，集群仍然可以保持运行，但是无法进行其他操作（增删改查），直到节点恢复， 或者可以设置两个磁盘节点，以保持有一个是可用的。
+> 2）内存节点虽然不写入磁盘，但是它执行比磁盘节点要好。
+> 3）如果集群中只有内存节点，那么不能停止它们，否则所有的状态，消息等都会丢失。
+
+#### 设置镜像队列策略
+
+经过上述配置，集群虽然搭建成功，但只是默认的普通集群，exchange，binding 等数据可以复制到集群各节点。
+但对于队列来说，各节点只有相同的元数据，即队列结构，但队列实体只存在于创建改队列的节点，即队列内容不会复制（从其余节点读取，可以建立临时的通信传输）。这样此节点宕机后，其余节点无法从宕机节点获取还未消费的消息实体。如果做了持久化，则需要等待宕机节点恢复，期间其余节点不能创建宕机节点已创建过的持久化队列；如果未做持久化，则消息丢失。
+
+下边来配置策略，策略名称为 ha-all，通配符 ^ 表示匹配到的所有队列，复制到所有节点,在任一节点上执行：
+
+```bash
+$ rabbitmqctl set_policy ha-all "^" '{"ha-mode":"all"}'
+```
+
+也可以复制匹配到的队列到集群中的任意两个或多个节点，而不是到所有节点，并进行自动同步：
+
+```bash
+$ rabbitmqctl set_policy ha-all "^" '{"ha-mode":"exactly","ha-params":2,"ha-sync-mode":"automatic"}'
+```
+
+或者复制匹配到的队列到集群中的指定节点：
+
+```bash
+$ rabbitmqctl set_policy ha-all "^" '{"ha-mode":"nodes","ha-params":["rabbit@node01","rabbit@node02"]}'
+```
+
+至此，镜像队列策略配置完成，同时也实现了 HA。
+
+### HAProxy 配置
+
+我们在`10.200.100.218`主机上直接用 yum 安装 HAProxy 即可：
+
+```bash
+$ yum -y install haproxy
+```
+
+修改 HAProxy 配置文件 `/etc/haproxy/haproxy.cfg`如下：
+
+```cfg
+global
+    log         127.0.0.1 local2
+
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     4000
+    user        haproxy
+    group       haproxy
+    daemon
+
+    stats socket /var/lib/haproxy/stats
+
+defaults
+    mode                    tcp
+    log                     global
+    option                  tcplog
+    option                  dontlognull
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 3000
+
+listen rabbitmq_cluster 0.0.0.0:5670
+    mode tcp
+    balance roundrobin
+    server node1 10.200.100.217:5672 check inter 2000 rise 2 fall 3
+    server node2 10.200.100.218:5672 check inter 2000 rise 2 fall 3
+    server node3 10.200.100.231:5672 check inter 2000 rise 2 fall 3
+
+listen monitor 0.0.0.0:8100
+    mode http
+    option httplog
+    stats enable
+    stats uri /stats
+    stats refresh 5s
+```
+
+重启 HAProxy:
+
+```bash
+$ systemctl restart haproxy.service
+```
+
+之后就可以通过 `http://10.200.100.218:8100/stats` 查看 HAProxy 的状态了。
+
+> 如果用的是云主机，可以利用云服务商自己的 LB，不一定要用 HAProxy
 
