@@ -64,7 +64,11 @@ $ yum install erlang -y
 Erlang 安装完成后，可以用如下命令检查其版本：
 
 ```bash
+$ erl
+Erlang/OTP 21 [erts-10.1] [source] [64-bit] [smp:1:1] [ds:1:1:10] [async-threads:1] [hipe]
 
+Eshell V10.1  (abort with ^G)
+1>
 ```
 
 这样，我们已经成功安装了 Erlang。
