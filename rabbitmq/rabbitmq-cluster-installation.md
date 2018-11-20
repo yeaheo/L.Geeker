@@ -36,5 +36,55 @@ Erlang : 21.1
 RabbitMQ: v3.7.9
 ```
 
-配置 RabbitMQ 集群首先需要在各个主机上安装并配置 RabbitMQ ，具体过程可以参考：[rabbitmq-single-installation.md](https://github.com/yeaheo/hello-linux/blob/master/rabbitmq/rabbitmq-single-installation.md)
+修改各主机 `hosts` 文件如下：
+
+```bash
+....
+10.200.100.231 master master.yeaheo.com
+10.200.100.217 node01 node01.yeaheo.com
+10.200.100.218 node02 node02.yeaheo.com
+....
+```
+
+配置 RabbitMQ 集群首先需要在各个主机上安装并配置 Erlang 和 RabbitMQ ，Erlang安装过程可以参考: [rabbitmq-erlang-installation.md ](https://github.com/yeaheo/hello-linux/blob/master/rabbitmq/rabbitmq-erlang-installation.md)RabbitMQ 具体过程可以参考：[rabbitmq-single-installation.md](https://github.com/yeaheo/hello-linux/blob/master/rabbitmq/rabbitmq-single-installation.md)
+
+当 Erlang 和 RabbitMQ 安装完成后就可以配置 RabbitMQ 集群了。
+
+### 配置 RabbitMQ 集群
+
+本次部署集群时都是将其他两个 RabbitMQ 加入到 master 主机现有集群中。
+
+rabbitmq-server 启动时，会一起启动节点和应用，它预先设置 RabbitMQ 应用为 standalone 模式。要将一个节点加入到现有的集群中，你需要停止这个应用，并将节点设置为原始状态。如果使用 `rabbitmqctl stop`，应用和节点都将被关闭。所以使用 `rabbitmqctl stop_app`仅仅关闭应用
+
+因为将其他两个 RabbitMQ 加入到 master 主机现有集群中，所以只需要在 `node01`和 `node02` 上操作即可：
+
+node01 主机（10.200.100.217）上操作：
+
+```bash
+node01$ rabbitmqctl stop_app      
+node01$ rabbitmqctl join_cluster rabbit@master         ####这里集群的名字一定不要写错了
+node01$ rabbitmqctl start_app
+```
+
+> 集群名字一般可以在 `master`主机的日志文件中看到，需要注意的是这个集群名字需要和日志文件中保持一致，否则加入集群时会报错
+
+node02 主机（10.200.100.218）上操作：
+
+```bash
+node02$ rabbitmqctl stop_app      
+node02$ rabbitmqctl join_cluster rabbit@master         ####这里集群的名字一定不要写错了
+node02$ rabbitmqctl start_app
+```
+
+查看集群状态：
+
+```bash
+$ rabbitmqctl cluster_status
+```
+
+
+
+此时 `node01` 与 `node02` 也会自动建立连接，集群配置完成。
+
+> 如果要使用内存节点，则可以使用 `rabbitmqctl join_cluster --ram rabbit@master` 加入集群。
 
