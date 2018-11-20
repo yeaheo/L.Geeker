@@ -11,7 +11,11 @@ Erlang 官方库文件参见[Erlang repository page](https://packages.erlang-sol
 系统基本环境如下：
 
 ```bash
+$ cat /etc/redhat-release
+CentOS Linux release 7.5.1804 (Core)
 
+$ uname -r
+3.10.0-862.el7.x86_64
 ```
 
 下载基本依赖软件：
