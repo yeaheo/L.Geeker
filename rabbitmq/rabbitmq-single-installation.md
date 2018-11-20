@@ -9,7 +9,13 @@
 本次安装系统环境及版本如下所示：
 
 ```bash
-Erlang : 
+$ cat /etc/redhat-release
+CentOS Linux release 7.5.1804 (Core)
+
+$ uname -r
+3.10.0-862.el7.x86_64
+
+Erlang : 21.1
 RabbitMQ: v3.7.9
 ```
 
