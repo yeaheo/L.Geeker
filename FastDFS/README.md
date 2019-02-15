@@ -1,1 +1,1 @@
-![yeaheo](../cover-img/yeaheo_e.jpg)
+FastDFS 的安装配置
