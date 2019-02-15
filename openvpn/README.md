@@ -1,1 +1,1 @@
-![yeaheo](../cover-img/yeaheo_q.jpg)
+OpenVPN 安装及配置向导
