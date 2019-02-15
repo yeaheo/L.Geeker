@@ -1,1 +1,1 @@
-![yeaheo](../cover-img/yeaheo_p.jpg)
+CI 相关环境的基本配置
