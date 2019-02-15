@@ -1,1 +1,1 @@
-![yeaheo](../cover-img/yeaheo_i.jpg)
+针对 MongoDB 的一些配置
