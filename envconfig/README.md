@@ -1,1 +1,1 @@
-![yeaheo](../cover-img/yeaheo_g.jpg)
+基本环境配置
