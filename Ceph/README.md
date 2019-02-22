@@ -1,1 +1,1 @@
-![yeaheo](../cover-img/yeaheo_b.jpg)
+ceph 相关
