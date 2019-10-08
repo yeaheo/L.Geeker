@@ -48,3 +48,13 @@ $ kubectl config use-context  --kubeconfig=/opt/work/default-ns-admin.conf
 # 查看完成的配置文件内容
 $ kubectl config view --kubeconfig=/opt/work/default-ns-admin.conf
 ```
+
+### 创建连接私有镜像仓库的 Secret
+```bash
+$ kubectl create secret docker-registry xx --docker-server=xx --docker-username='xx' --docker-password='xx' -n xx
+```
+
+### 创建用于 Ingress 的 Secret
+```bash
+$ kubectl create secret tls xx --key xx --cert xx -n xx
+```
